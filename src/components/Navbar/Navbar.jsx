@@ -35,7 +35,7 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    to='/'
+                    to='/classes'
                     className={({ isActive }) => (isActive ? 'font-bold text-lg tracking-wide text-indigo-600 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
                 >
                     Classes
