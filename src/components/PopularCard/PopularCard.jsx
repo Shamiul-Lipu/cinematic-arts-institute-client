@@ -1,6 +1,6 @@
 import { FaStar } from "react-icons/fa";
 
-const PopularCard = ({ image, title, instructor, course, rating }) => {
+const PopularCard = ({ image, title, instructor, course, rating, instructorDetails, email, classes, classesTaken }) => {
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>
@@ -15,6 +15,16 @@ const PopularCard = ({ image, title, instructor, course, rating }) => {
                 }
                 {
                     instructor && <p className="font-semibold text-base">Instructor: {course}</p>
+                }
+                {/* for Instructors page , instructor card  */}
+                {
+                    instructorDetails && <>
+                        <p className="font-semibold text-base">{email}</p>
+                        <p className="font-semibold text-base">Currently taking {classesTaken} class</p>
+                        <ul>
+                            {classes.map(course => <li key={course}>{course}</li>)}
+                        </ul>
+                    </>
                 }
             </div>
         </div>

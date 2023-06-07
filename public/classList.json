@@ -4,6 +4,12 @@
         "imgUrl": "https://i.ibb.co/BwDJnnz/1.jpg",
         "instructorImg": "https://i.ibb.co/2MmsFSx/1.jpg",
         "email": "dave@gmail.com",
+        "classes": [
+            "Filmmaking",
+            "Cinematography",
+            "Film Analysis"
+        ],
+        "classesTaken": 3,
         "class": "Visual Storytelling Techniques",
         "numOfStudent": 26,
         "availableSeats": 11,
@@ -16,6 +22,12 @@
         "instructor": "Pattrick",
         "imgUrl": "https://i.ibb.co/bL1Nfx4/2.jpg",
         "email": "pattrick@gmail.com",
+        "classes": [
+            "Cinematography Basics",
+            "Lighting for Film and TV",
+            "Visual Effects Workshop"
+        ],
+        "classesTaken": 3,
         "class": "Documentary Filmmaking",
         "instructorImg": "https://i.ibb.co/wrb0GKx/3.jpg",
         "numOfStudent": 23,
@@ -29,6 +41,12 @@
         "instructor": "John Smith",
         "imgUrl": "https://i.ibb.co/hYX94j6/3.jpg",
         "email": "johnsmith@gmail.com",
+        "classes": [
+            "Introduction to Filmmaking",
+            "Advanced Cinematography",
+            "Film Analysis and Critique"
+        ],
+        "classesTaken": 3,
         "instructorImg": "https://i.ibb.co/P6ZBkT6/5.jpg",
         "class": "Introduction to Filmmaking",
         "numOfStudent": 29,
@@ -42,6 +60,12 @@
         "instructor": "Emily Johnson",
         "imgUrl": "https://i.ibb.co/9m0d65N/8.jpg",
         "email": "emily.johnson@yahoo.com",
+        "classes": [
+            "Screenwriting Fundamentals",
+            "Visual Storytelling Techniques",
+            "Documentary Filmmaking"
+        ],
+        "classesTaken": 3,
         "instructorImg": "https://i.ibb.co/34xRbt7/4.jpg",
         "class": "Screenwriting Fundamentals",
         "numOfStudent": 31,
@@ -55,6 +79,11 @@
         "instructor": "Robert Johnson",
         "imgUrl": "https://i.ibb.co/DDyYFc2/4.jpg",
         "email": "robert.johnson@yahoo.com",
+        "classes": [
+            "Film Theory and Analysis",
+            "Independent Film Production"
+        ],
+        "classesTaken": 2,
         "instructorImg": "https://i.ibb.co/LdMpD1F/9.jpg",
         "class": "Production Design for Film",
         "numOfStudent": 20,
@@ -68,6 +97,11 @@
         "instructor": "David Rodriguez",
         "imgUrl": "https://i.ibb.co/30xPvWg/5.jpg",
         "email": "david.rodriguez@example.com",
+        "classes": [
+            "Film Production Management",
+            "Advanced Editing Techniques"
+        ],
+        "classesTaken": 2,
         "instructorImg": "https://i.ibb.co/5hwg72W/10.jpg",
         "class": "Film Production Management",
         "numOfStudent": 17,
@@ -81,6 +115,12 @@
         "instructor": "Sarah Thompson",
         "imgUrl": "https://i.ibb.co/jLvkNXb/7.jpg",
         "email": "sarah.thompson@outlook.com",
+        "classes": [
+            "Cinematography Basics",
+            "Lighting for Film and TV",
+            "Visual Effects Workshop"
+        ],
+        "classesTaken": 3,
         "instructorImg": "https://i.ibb.co/8rZp7zr/7.jpg",
         "class": "Cinematography Basics",
         "numOfStudent": 35,
@@ -94,6 +134,12 @@
         "instructor": "Michael Brown",
         "imgUrl": "https://i.ibb.co/10m80n7/6.jpg",
         "email": "michaelbrown@gmail.com",
+        "classes": [
+            "Post-Production Workflow",
+            "Sound Design for Film",
+            "Film Marketing and Distribution"
+        ],
+        "classesTaken": 3,
         "instructorImg": "https://i.ibb.co/8Ymqz1P/6.jpg",
         "class": "Editing and Post-Production",
         "numOfStudent": 27,
@@ -107,6 +153,11 @@
         "instructor": "Emma Wilson",
         "imgUrl": "https://i.ibb.co/9m0d65N/8.jpg",
         "email": "emma.wilson@gmail.com",
+        "classes": [
+            "Screenwriting Workshop",
+            "Short Film Production"
+        ],
+        "classesTaken": 2,
         "instructorImg": "https://i.ibb.co/bvWT9fY/11.jpg",
         "class": "Screenwriting Workshop",
         "numOfStudent": 20,
@@ -120,6 +171,12 @@
         "instructor": "Daniel Lee",
         "imgUrl": "https://i.ibb.co/3p3c6tG/9.jpg",
         "email": "daniel.lee@gmail.com",
+        "classes": [
+            "Film Production Techniques",
+            "Film Editing Fundamentals",
+            "Color Grading for Film"
+        ],
+        "classesTaken": 3,
         "instructorImg": "https://i.ibb.co/LQfqWcY/8.jpg",
         "class": "Film Production Techniques",
         "numOfStudent": 30,
@@ -133,6 +190,11 @@
         "instructor": "Olivia Anderson",
         "imgUrl": "https://i.ibb.co/f8xXRdj/10.jpg",
         "email": "olivia.anderson@yahoo.com",
+        "classes": [
+            "Film Directing Essentials",
+            "Production Design for Film"
+        ],
+        "classesTaken": 2,
         "instructorImg": "https://i.ibb.co/MMfWcGx/12.jpg",
         "class": "Cinematic Storytelling",
         "numOfStudent": 22,
@@ -146,6 +208,12 @@
         "instructor": "Matthew Thompson",
         "imgUrl": "https://i.ibb.co/Q6kJmyK/11.jpg",
         "email": "matthew.thompson@gmail.com",
+        "classes": [
+            "Film Sound Design",
+            "Film Directing Techniques",
+            "Film Festivals and Distribution"
+        ],
+        "classesTaken": 3,
         "instructorImg": "https://i.ibb.co/74JcpWG/13.jpg",
         "class": "Film Sound Design",
         "numOfStudent": 26,
@@ -159,6 +227,11 @@
         "instructor": "Sophia Martin",
         "imgUrl": "https://i.ibb.co/h7gHbTc/12.jpg",
         "email": "sophia.martin@example.com",
+        "classes": [
+            "Film Theory and Analysis",
+            "Independent Film Production"
+        ],
+        "classesTaken": 2,
         "instructorImg": "https://i.ibb.co/PZJWYXC/14.jpg",
         "class": "Film Theory and Analysis",
         "numOfStudent": 32,
@@ -172,6 +245,11 @@
         "instructor": "James Wilson",
         "imgUrl": "https://i.ibb.co/0YBdbtq/13.jpg",
         "email": "james.wilson@yahoo.com",
+        "classes": [
+            "Film Marketing Strategies",
+            "Film Production Budgeting"
+        ],
+        "classesTaken": 2,
         "instructorImg": "https://i.ibb.co/1nrVP3T/2.jpg",
         "class": "Film Marketing Strategies",
         "numOfStudent": 32,
@@ -185,6 +263,12 @@
         "instructor": "Ava Garcia",
         "imgUrl": "https://i.ibb.co/S5kXFXy/14.jpg",
         "email": "ava.garcia@gmail.com",
+        "classes": [
+            "Screenwriting for Television",
+            "Film Festival Management",
+            "Documentary Editing"
+        ],
+        "classesTaken": 3,
         "instructorImg": "https://i.ibb.co/wCDX2LW/15.jpg",
         "class": "Screenwriting for Television",
         "numOfStudent": 29,
