@@ -11,9 +11,6 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 
-
-
-
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [seePass, setSeePass] = useState(false);
@@ -36,7 +33,7 @@ const Login = () => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'User created successfully.',
+                    title: 'User Login successfully.',
                     showConfirmButton: false,
                     timer: 1500
                 });

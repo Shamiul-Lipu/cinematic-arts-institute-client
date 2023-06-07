@@ -9,9 +9,8 @@ import SignUp from "../pages/SignUp/SignUp";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
 import DashboardLayout from "../layout/DashboardLayout";
-import SelectedClasses from "../pages/Dashboard/User/SelectedClasses";
-import EnrolledClasses from "../pages/Dashboard/User/EnrolledClasses";
-
+import SelectedClasses from "../pages/Dashboard/User/SelectedClasses/SelectedClasses";
+import EnrolledClasses from "../pages/Dashboard/User/EnrolledClasses/EnrolledClasses";
 
 
 const router = createBrowserRouter([

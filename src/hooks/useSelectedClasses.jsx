@@ -1,0 +1,22 @@
+import { useQuery } from '@tanstack/react-query'
+import { useContext } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
+import axios from 'axios';
+
+const useSelectedClasses = () => {
+    const { user, loading } = useContext(AuthContext);
+
+    const { refetch, data: selectedClasses = [] } = useQuery({
+        queryKey: ['selected-classes', user?.email],
+        enabled: !loading,
+        queryFn: async () => {
+            const res = await axios(`${import.meta.env.VITE_API_URL}/selected-classes?email=${user?.email}`)
+            // console.log('res from useSelectedClasses axios', res)
+            return res.data;
+        },
+    })
+
+    return [selectedClasses, refetch]
+
+}
+export default useSelectedClasses;
