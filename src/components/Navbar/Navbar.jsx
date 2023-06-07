@@ -6,6 +6,8 @@ import { Tooltip } from 'react-tooltip'
 import Container from "../Container/Container";
 import Lottie from "lottie-react";
 import avatar from '../../assets/wired-lineal-21-avatar.json'
+import SecondaryBtn from "../Buttons/SecondaryBtn";
+import PrimaryBtn from "../Buttons/PrimaryBtn";
 
 const Navbar = () => {
     const user = null;
@@ -84,16 +86,20 @@ const Navbar = () => {
                         <div>
                             <div className="dropdown dropdown-end">
 
-                                <div className="flex justify-center items-center">
+                                <div className="flex justify-center items-center bg-sky-100 pl-2 rounded-3xl">
+                                    {/* dashboard button in presence of user */}
+                                    {/* visibale Login button on navbar  */}
                                     {
-                                        user && <Link to={'/'}><button className="btn btn-outline rounded-3xl mx-2"> Dashboard</button></Link>
+                                        user ?
+                                            <Link to={'/'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
+                                            : <Link to={'/login'}><SecondaryBtn label={'Login'} ></SecondaryBtn></Link>
                                     }
 
                                     <label tabIndex={0} className={`btn btn-ghost btn-circle avatar ${user && 'online'}`} data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${user ? user : 'Sign up/Login'}`}
                                         data-tooltip-place="top">
                                         <div
-                                            className={`w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2`}
+                                            className={`${user ? 'w-10' : 'w-5'} rounded-full ring ring-primary ring-offset-base-100 ring-offset-2`}
                                             data-tip={`${user && user.name}`}
                                             data-place="left"
                                         >
@@ -105,11 +111,11 @@ const Navbar = () => {
                                 <Tooltip id="my-tooltip" place="left" />
                                 {/* user dropdown */}
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-indigo-50">
-                                    <li>
+                                    <li className="font-semibold uppercase">
                                         {
-                                            user ? <Link to='/' className="justify-between hover:bg-slate-300">
+                                            user ? <Link to='/' className="justify-between hover:bg-sky-200 py-3">
                                                 Dashboard
-                                            </Link> : <Link to='/' className="justify-between hover:bg-slate-300">
+                                            </Link> : <Link to='/signup' className="justify-between hover:bg-sky-200  py-3">
                                                 Sign up
                                             </Link>
                                         }
@@ -118,13 +124,8 @@ const Navbar = () => {
                                     <>
                                         {
                                             user ?
-                                                <button className="btn btn-active btn-primary">LogOut</button>
-                                                : <NavLink
-                                                    to='/login'
-                                                    className={({ isActive }) => (isActive ? 'btn btn-primary' : 'btn btn-outline btn-primary')}
-                                                >
-                                                    Login
-                                                </NavLink>
+                                                <PrimaryBtn label={'Log out'} className=""></PrimaryBtn>
+                                                : <Link to='/login'><PrimaryBtn label={'Login'} className=""></PrimaryBtn></Link>
                                         }
                                     </>
                                 </ul>

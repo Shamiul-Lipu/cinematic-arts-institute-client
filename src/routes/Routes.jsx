@@ -4,6 +4,8 @@ import {
 import Main from "../layout/Main";
 import Home from "../pages/Home/Home";
 import ErrorPage from "../pages/ErrorPage.jsx/ErrorPage";
+import Login from "../pages/Login/Login";
+import SignUp from "../pages/SignUp/SignUp";
 
 
 
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
             { path: '/', element: <Home /> },
         ]
     },
+    { path: '/login', element: <Login /> },
+    { path: '/signup', element: <SignUp /> }
 ]);
 
 export default router;

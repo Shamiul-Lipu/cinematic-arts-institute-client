@@ -1,0 +1,129 @@
+[
+    {
+        "instructor": "John Smith",
+        "imgUrl": "",
+        "email": "johnsmith@gmail.com",
+        "classes": [
+            "Introduction to Filmmaking",
+            "Advanced Cinematography",
+            "Film Analysis and Critique"
+        ],
+        "classesTaken": 3
+    },
+    {
+        "instructor": "Emily Johnson",
+        "imgUrl": "",
+        "email": "emily.johnson@yahoo.com",
+        "classes": [
+            "Screenwriting Fundamentals",
+            "Visual Storytelling Techniques",
+            "Documentary Filmmaking"
+        ],
+        "classesTaken": 3
+    },
+    {
+        "instructor": "David Rodriguez",
+        "imgUrl": "",
+        "email": "david.rodriguez@example.com",
+        "classes": [
+            "Film Production Management",
+            "Advanced Editing Techniques"
+        ],
+        "classesTaken": 2
+    },
+    {
+        "instructor": "Sarah Thompson",
+        "imgUrl": "",
+        "email": "sarah.thompson@outlook.com",
+        "classes": [
+            "Cinematography Basics",
+            "Lighting for Film and TV",
+            "Visual Effects Workshop"
+        ],
+        "classesTaken": 3
+    },
+    {
+        "instructor": "Michael Brown",
+        "imgUrl": "",
+        "email": "michael.brown@gmail.com",
+        "classes": [
+            "Post-Production Workflow",
+            "Sound Design for Film",
+            "Film Marketing and Distribution"
+        ],
+        "classesTaken": 3
+    },
+    {
+        "instructor": "Emma Wilson",
+        "imgUrl": "",
+        "email": "emma.wilson@gmail.com",
+        "classes": [
+            "Screenwriting Workshop",
+            "Short Film Production"
+        ],
+        "classesTaken": 2
+    },
+    {
+        "instructor": "Daniel Lee",
+        "imgUrl": "",
+        "email": "daniel.lee@yahoo.com",
+        "classes": [
+            "Film Production Techniques",
+            "Film Editing Fundamentals",
+            "Color Grading for Film"
+        ],
+        "classesTaken": 3
+    },
+    {
+        "instructor": "Olivia Anderson",
+        "imgUrl": "",
+        "email": "olivia.anderson@example.com",
+        "classes": [
+            "Film Directing Essentials",
+            "Production Design for Film"
+        ],
+        "classesTaken": 2
+    },
+    {
+        "instructor": "Matthew Thompson",
+        "imgUrl": "",
+        "email": "matthew.thompson@gmail.com",
+        "classes": [
+            "Film Sound Design",
+            "Film Directing Techniques",
+            "Film Festivals and Distribution"
+        ],
+        "classesTaken": 3
+    },
+    {
+        "instructor": "Sophia Martin",
+        "imgUrl": "",
+        "email": "sophia.martin@example.com",
+        "classes": [
+            "Film Theory and Analysis",
+            "Independent Film Production"
+        ],
+        "classesTaken": 2
+    },
+    {
+        "instructor": "James Wilson",
+        "imgUrl": "",
+        "email": "james.wilson@gmail.com",
+        "classes": [
+            "Film Marketing Strategies",
+            "Film Production Budgeting"
+        ],
+        "classesTaken": 2
+    },
+    {
+        "instructor": "Ava Garcia",
+        "imgUrl": "",
+        "email": "ava.garcia@yahoo.com",
+        "classes": [
+            "Screenwriting for Television",
+            "Film Festival Management",
+            "Documentary Editing"
+        ],
+        "classesTaken": 3
+    }
+]

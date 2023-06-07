@@ -1,0 +1,114 @@
+[
+    {
+        "instructor": "Dave Gray",
+        "imgUrl": "",
+        "email": "dave@gmail.com",
+        "class": "Visual Storytelling Techniques",
+        "availableSeats": 3,
+        "price": 1450
+    },
+    {
+        "instructor": "Pattrick",
+        "imgUrl": "",
+        "email": "pattrick@gmail.com",
+        "class": "Documentary Filmmaking",
+        "availableSeats": 5,
+        "price": 950
+    },
+    {
+        "instructor": "John Smith",
+        "imgUrl": "",
+        "email": "johnsmith@gmail.com",
+        "class": "Introduction to Filmmaking",
+        "availableSeats": 35,
+        "price": 450
+    },
+    {
+        "instructor": "Emily Johnson",
+        "imgUrl": "",
+        "email": "emily.johnson@yahoo.com",
+        "class": "Screenwriting Fundamentals",
+        "availableSeats": 42,
+        "price": 480
+    },
+    {
+        "instructor": "David Rodriguez",
+        "imgUrl": "",
+        "email": "david.rodriguez@example.com",
+        "class": "Film Production Management",
+        "availableSeats": 28,
+        "price": 399
+    },
+    {
+        "instructor": "Sarah Thompson",
+        "imgUrl": "",
+        "email": "sarah.thompson@outlook.com",
+        "class": "Cinematography Basics",
+        "availableSeats": 37,
+        "price": 299
+    },
+    {
+        "instructor": "Michael Brown",
+        "imgUrl": "",
+        "email": "michaelbrown@gmail.com",
+        "class": "Editing and Post-Production",
+        "availableSeats": 29,
+        "price": 590
+    },
+    {
+        "instructor": "Emma Wilson",
+        "imgUrl": "",
+        "email": "emma.wilson@gmail.com",
+        "class": "Screenwriting Workshop",
+        "availableSeats": 46,
+        "price": 320
+    },
+    {
+        "instructor": "Daniel Lee",
+        "imgUrl": "",
+        "email": "daniel.lee@gmail.com",
+        "class": "Film Production Techniques",
+        "availableSeats": 32,
+        "price": 550
+    },
+    {
+        "instructor": "Olivia Anderson",
+        "imgUrl": "",
+        "email": "olivia.anderson@yahoo.com",
+        "class": "Cinematic Storytelling",
+        "availableSeats": 24,
+        "price": 460
+    },
+    {
+        "instructor": "Matthew Thompson",
+        "imgUrl": "",
+        "email": "matthew.thompson@gmail.com",
+        "class": "Film Sound Design",
+        "availableSeats": 43,
+        "price": 370
+    },
+    {
+        "instructor": "Sophia Martin",
+        "imgUrl": "",
+        "email": "sophia.martin@example.com",
+        "class": "Film Theory and Analysis",
+        "availableSeats": 31,
+        "price": 410
+    },
+    {
+        "instructor": "James Wilson",
+        "imgUrl": "",
+        "email": "james.wilson@yahoo.com",
+        "class": "Film Marketing Strategies",
+        "availableSeats": 25,
+        "price": 290
+    },
+    {
+        "instructor": "Ava Garcia",
+        "imgUrl": "",
+        "email": "ava.garcia@gmail.com",
+        "class": "Screenwriting for Television",
+        "availableSeats": 39,
+        "price": 510
+    }
+]
