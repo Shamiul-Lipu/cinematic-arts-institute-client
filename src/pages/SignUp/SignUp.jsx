@@ -2,19 +2,27 @@
 import SectionTitle from "../../components/Titles/SectionTitle";
 import imageSignUp from '../../assets/images/signup.jpg'
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FaEye, FaEyeSlash, FaExclamationTriangle, FaExclamation, FaExclamationCircle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import SubSectionTitle from "../../components/Titles/SubSectionTitle";
 import PrimaryBtn from "../../components/Buttons/PrimaryBtn";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
+import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const [seePass, setSeePass] = useState(false)
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [error, setError] = useState("");
+    const { createUser, auth, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    // for confirm password validation
     const password = watch('password');
     const confirmPassword = watch('confirmPassword');
 
@@ -22,8 +30,40 @@ const SignUp = () => {
         if (data.password !== data.confirmPassword) {
             return
         }
-        console.log(data)
+        // console.log(data)
+        createUser(data.email, data.password)
+            .then(result => {
+                const createdUser = result.user;
+                updateProfile(auth.currentUser, {
+                    displayName: data.name,
+                    photoURL: `${data.photoURL}`
+                })
+            })
+            .catch(error => {
+                setError(error.message);
+                console.log(error)
+            })
+
     };
+    // Google Sign up
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser)
+                navigate(from, { replace: true })
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User created successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     return (
         <section className="min-h-screen">
@@ -167,7 +207,7 @@ const SignUp = () => {
 
                             className='mx-auto my-2 '
                         >
-                            <button className="btn btn-outline "><FcGoogle size={30} />Continue with Google</button>
+                            <button onClick={handleGoogleLogin} className="btn btn-outline "><FcGoogle size={30} />Continue with Google</button>
                         </div>
                     </div>
                     {/* img */}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import mainLogo from '../../assets/cinema.png'
 import { HiOutlineBars3BottomLeft, HiXMark } from "react-icons/hi2";
@@ -8,11 +8,17 @@ import Lottie from "lottie-react";
 import avatar from '../../assets/wired-lineal-21-avatar.json'
 import SecondaryBtn from "../Buttons/SecondaryBtn";
 import PrimaryBtn from "../Buttons/PrimaryBtn";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-    const user = null;
+    const { user, logOut } = useContext(AuthContext)
     const [dropMenu, setDropMenu] = useState(false)
     // console.log(dropMenu);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
 
     // navitems 
     const navItems = <>
@@ -91,7 +97,7 @@ const Navbar = () => {
                                     {/* visibale Login button on navbar  */}
                                     {
                                         user ?
-                                            <Link to={'/'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
+                                            <Link to={'/dashboard/my-selected-classes'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
                                             : <Link to={'/login'}><SecondaryBtn label={'Login'} ></SecondaryBtn></Link>
                                     }
 
@@ -100,10 +106,10 @@ const Navbar = () => {
                                         data-tooltip-place="top">
                                         <div
                                             className={`${user ? 'w-10' : 'w-6'} rounded-full ring ring-primary ring-offset-base-100 ring-offset-2`}
-                                            data-tip={`${user && user.name}`}
+                                            data-tip={`${user && user?.displayName}`}
                                             data-place="left"
                                         >
-                                            {user ? <img src="" alt="" /> : <Lottie className="" animationData={avatar} />}
+                                            {user ? <img src={user?.photoURL} alt="" /> : <Lottie className="" animationData={avatar} />}
                                         </div>
                                     </label>
                                 </div>
@@ -113,7 +119,7 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-indigo-50">
                                     <li className="font-semibold uppercase">
                                         {
-                                            user ? <Link to='/' className="justify-between hover:bg-sky-200 py-3">
+                                            user ? <Link to='/dashboard/my-selected-classes' className="justify-between hover:bg-sky-200 py-3">
                                                 Dashboard
                                             </Link> : <Link to='/signup' className="justify-between hover:bg-sky-200  py-3">
                                                 Sign up
@@ -124,7 +130,7 @@ const Navbar = () => {
                                     <>
                                         {
                                             user ?
-                                                <PrimaryBtn label={'Log out'} className=""></PrimaryBtn>
+                                                <PrimaryBtn onClick={handleLogOut} label={'Log out'} className=""></PrimaryBtn>
                                                 : <Link to='/login'><PrimaryBtn label={'Login'} className=""></PrimaryBtn></Link>
                                         }
                                     </>

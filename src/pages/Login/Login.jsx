@@ -1,12 +1,14 @@
 import imageLogIn from '../../assets/images/login.jpg'
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
 import { FaEye, FaEyeSlash, FaExclamationTriangle, FaExclamationCircle } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SectionTitle from '../../components/Titles/SectionTitle';
 import SubSectionTitle from '../../components/Titles/SubSectionTitle';
 import PrimaryBtn from '../../components/Buttons/PrimaryBtn';
+import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 
@@ -15,10 +17,35 @@ import PrimaryBtn from '../../components/Buttons/PrimaryBtn';
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [seePass, setSeePass] = useState(false);
+    const { signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const onSubmit = data => {
         console.log(data)
     };
+
+    // Google Login
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser)
+                navigate(from, { replace: true })
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User created successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
 
     return (
         <section className="min-h-screen ">
@@ -108,7 +135,7 @@ const Login = () => {
 
                             className='mx-auto my-2'
                         >
-                            <button className="btn btn-outline "><FcGoogle size={30} />Continue with Google</button>
+                            <button onClick={handleGoogleLogin} className="btn btn-outline "><FcGoogle size={30} />Continue with Google</button>
                         </div>
                     </div>
                 </div>
