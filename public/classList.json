@@ -1,114 +1,197 @@
 [
     {
         "instructor": "Dave Gray",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/BwDJnnz/1.jpg",
+        "instructorImg": "https://i.ibb.co/2MmsFSx/1.jpg",
         "email": "dave@gmail.com",
         "class": "Visual Storytelling Techniques",
-        "availableSeats": 3,
-        "price": 1450
+        "numOfStudent": 26,
+        "availableSeats": 11,
+        "price": 2975,
+        "classRating": 4.7,
+        "instructorRating": 4.9,
+        "details": "Join Dave Gray's Visual Storytelling Techniques class to master the art of visually captivating storytelling. Discover advanced cinematography techniques, lighting setups, and editing styles to create cinematic masterpieces. With Dave's expertise and personalized guidance, you'll gain valuable insights and become a skilled visual storyteller. Dave is widely regarded as one of the best teaching instructors in the industry."
     },
     {
         "instructor": "Pattrick",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/bL1Nfx4/2.jpg",
         "email": "pattrick@gmail.com",
         "class": "Documentary Filmmaking",
-        "availableSeats": 5,
-        "price": 950
+        "instructorImg": "https://i.ibb.co/wrb0GKx/3.jpg",
+        "numOfStudent": 23,
+        "availableSeats": 6,
+        "price": 595,
+        "classRating": 4.5,
+        "instructorRating": 4.8,
+        "details": "Embark on an inspiring journey into the world of documentary filmmaking with Pattrick's comprehensive class. Learn the art of capturing real-life stories and bringing them to the screen with authenticity and impact. Discover the secrets of successful documentary filmmaking, including research, storytelling techniques, and post-production. Pattrick is renowned for his expertise in the field and his ability to nurture aspiring documentary filmmakers."
     },
     {
         "instructor": "John Smith",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/hYX94j6/3.jpg",
         "email": "johnsmith@gmail.com",
+        "instructorImg": "https://i.ibb.co/P6ZBkT6/5.jpg",
         "class": "Introduction to Filmmaking",
-        "availableSeats": 35,
-        "price": 450
+        "numOfStudent": 29,
+        "availableSeats": 5,
+        "price": 245,
+        "classRating": 4.9,
+        "instructorRating": 4.6,
+        "details": "Unlock the world of filmmaking with John Smith's immersive Introduction to Filmmaking class. From script to screen, John will guide you through the entire filmmaking process, covering essential aspects such as pre-production, cinematography, editing, and storytelling. With John's expertise and hands-on approach, you'll develop a strong foundation in filmmaking. John is highly regarded as a passionate instructor committed to helping students excel in the craft."
     },
     {
         "instructor": "Emily Johnson",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/9m0d65N/8.jpg",
         "email": "emily.johnson@yahoo.com",
+        "instructorImg": "https://i.ibb.co/34xRbt7/4.jpg",
         "class": "Screenwriting Fundamentals",
-        "availableSeats": 42,
-        "price": 480
+        "numOfStudent": 31,
+        "availableSeats": 7,
+        "price": 390,
+        "classRating": 4.8,
+        "instructorRating": 4.5,
+        "details": "Unleash your storytelling potential with Emily Johnson's Screenwriting Fundamentals class. Dive into the art of crafting engaging screenplays, exploring character development, story structure, dialogue, and more. Through Emily's expert guidance, you'll learn industry best practices and gain the tools to bring your stories to life on the screen. Emily is known for her exceptional teaching style and her ability to inspire aspiring screenwriters."
+    },
+    {
+        "instructor": "Robert Johnson",
+        "imgUrl": "https://i.ibb.co/DDyYFc2/4.jpg",
+        "email": "robert.johnson@yahoo.com",
+        "instructorImg": "https://i.ibb.co/LdMpD1F/9.jpg",
+        "class": "Production Design for Film",
+        "numOfStudent": 20,
+        "availableSeats": 9,
+        "price": 450,
+        "classRating": 4.6,
+        "instructorRating": 4.7,
+        "details": "Enter the world of visual aesthetics with Robert Johnson's Production Design for Film class. Learn how to create captivating and immersive film environments through meticulous attention to detail, set design, and art direction. Robert's extensive experience in the industry and his passion for creating visually stunning films make him an outstanding instructor. Join this class to master the art of production design."
     },
     {
         "instructor": "David Rodriguez",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/30xPvWg/5.jpg",
         "email": "david.rodriguez@example.com",
+        "instructorImg": "https://i.ibb.co/5hwg72W/10.jpg",
         "class": "Film Production Management",
-        "availableSeats": 28,
-        "price": 399
+        "numOfStudent": 17,
+        "availableSeats": 8,
+        "price": 725,
+        "classRating": 4.7,
+        "instructorRating": 4.5,
+        "details": "Join David Rodriguez's Film Production Management class to gain comprehensive insights into the intricacies of managing a film production. From budgeting and scheduling to logistics and crew management, you'll learn the essential skills needed to ensure a smooth and successful film shoot. David's vast experience as a production manager in the industry makes him the perfect instructor to guide you on this career path."
     },
     {
         "instructor": "Sarah Thompson",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/jLvkNXb/7.jpg",
         "email": "sarah.thompson@outlook.com",
+        "instructorImg": "https://i.ibb.co/8rZp7zr/7.jpg",
         "class": "Cinematography Basics",
-        "availableSeats": 37,
-        "price": 299
+        "numOfStudent": 35,
+        "availableSeats": 4,
+        "price": 325,
+        "classRating": 4.8,
+        "instructorRating": 4.9,
+        "details": "Explore the art of capturing breathtaking visuals with Sarah Thompson's Cinematography Basics class. Learn the fundamental principles of camera operation, composition, lighting, and camera movement. Through hands-on exercises and expert guidance from Sarah, you'll develop the skills needed to create visually stunning cinematography. Sarah is renowned for her exceptional eye for detail and her ability to create cinematic experiences."
     },
     {
         "instructor": "Michael Brown",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/10m80n7/6.jpg",
         "email": "michaelbrown@gmail.com",
+        "instructorImg": "https://i.ibb.co/8Ymqz1P/6.jpg",
         "class": "Editing and Post-Production",
-        "availableSeats": 29,
-        "price": 590
+        "numOfStudent": 27,
+        "availableSeats": 10,
+        "price": 575,
+        "classRating": 4.9,
+        "instructorRating": 4.6,
+        "details": "Discover the art of shaping raw footage into compelling storytelling with Michael Brown's Editing and Post-Production class. Learn industry-standard editing techniques, creative storytelling approaches, and essential post-production workflows. Under Michael's expert guidance, you'll gain the skills to transform your footage into a captivating final product. Michael is highly regarded for his precision editing and dedication to teaching."
     },
     {
         "instructor": "Emma Wilson",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/9m0d65N/8.jpg",
         "email": "emma.wilson@gmail.com",
+        "instructorImg": "https://i.ibb.co/bvWT9fY/11.jpg",
         "class": "Screenwriting Workshop",
-        "availableSeats": 46,
-        "price": 320
+        "numOfStudent": 20,
+        "availableSeats": 12,
+        "price": 220,
+        "classRating": 4.7,
+        "instructorRating": 4.8,
+        "details": "Take your screenwriting skills to the next level with Emma Wilson's Screenwriting Workshop. Dive deep into the craft of storytelling, character development, dialogue, and structure. Through a combination of theory, practical exercises, and personalized feedback from Emma, you'll sharpen your writing abilities and elevate your screenplays. Emma is celebrated for her ability to empower writers and help them achieve their creative goals."
     },
     {
         "instructor": "Daniel Lee",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/3p3c6tG/9.jpg",
         "email": "daniel.lee@gmail.com",
+        "instructorImg": "https://i.ibb.co/LQfqWcY/8.jpg",
         "class": "Film Production Techniques",
-        "availableSeats": 32,
-        "price": 550
+        "numOfStudent": 30,
+        "availableSeats": 9,
+        "price": 475,
+        "classRating": 4.8,
+        "instructorRating": 4.9,
+        "details": "Join Daniel Lee's Film Production Techniques class to gain hands-on experience in various aspects of film production. From camera operation and lighting to sound recording and production management, you'll develop a comprehensive skill set. Daniel's expertise in film production and his dedication to teaching make him an exceptional instructor. This class is perfect for aspiring filmmakers looking to expand their practical knowledge."
     },
     {
         "instructor": "Olivia Anderson",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/f8xXRdj/10.jpg",
         "email": "olivia.anderson@yahoo.com",
+        "instructorImg": "https://i.ibb.co/MMfWcGx/12.jpg",
         "class": "Cinematic Storytelling",
-        "availableSeats": 24,
-        "price": 460
+        "numOfStudent": 22,
+        "availableSeats": 10,
+        "price": 395,
+        "classRating": 4.9,
+        "instructorRating": 4.7,
+        "details": "Unleash your creativity and storytelling prowess with Olivia Anderson's Cinematic Storytelling class. Learn how to craft compelling narratives, create engaging characters, and evoke emotions through visual storytelling techniques. Olivia's passion for storytelling and her ability to guide students in unlocking their creative potential sets her apart as an exceptional instructor. Join this class to elevate your cinematic storytelling skills."
     },
     {
         "instructor": "Matthew Thompson",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/Q6kJmyK/11.jpg",
         "email": "matthew.thompson@gmail.com",
+        "instructorImg": "https://i.ibb.co/74JcpWG/13.jpg",
         "class": "Film Sound Design",
-        "availableSeats": 43,
-        "price": 370
+        "numOfStudent": 26,
+        "availableSeats": 11,
+        "price": 345,
+        "classRating": 4.7,
+        "instructorRating": 4.8,
+        "details": "Delve into the fascinating world of film sound design with Matthew Thompson's comprehensive class. Learn how to create immersive soundscapes, design impactful sound effects, and master audio mixing for film. With Matthew's guidance, you'll gain a deep understanding of the role sound plays in storytelling and develop the skills to enhance the viewer's cinematic experience. Matthew's expertise in sound design makes him an invaluable instructor."
     },
     {
         "instructor": "Sophia Martin",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/h7gHbTc/12.jpg",
         "email": "sophia.martin@example.com",
+        "instructorImg": "https://i.ibb.co/PZJWYXC/14.jpg",
         "class": "Film Theory and Analysis",
-        "availableSeats": 31,
-        "price": 410
+        "numOfStudent": 32,
+        "availableSeats": 8,
+        "price": 280,
+        "classRating": 4.6,
+        "instructorRating": 4.7,
+        "details": "Deepen your understanding of cinema and its various aspects with Sophia Martin's Film Theory and Analysis class. Explore film history, genres, visual storytelling techniques, and critical analysis. Through engaging discussions and film screenings, Sophia will broaden your perspective and enhance your ability to appreciate and analyze films. Sophia's passion for film and her ability to convey complex concepts in an accessible manner make her an exceptional instructor."
     },
     {
         "instructor": "James Wilson",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/0YBdbtq/13.jpg",
         "email": "james.wilson@yahoo.com",
+        "instructorImg": "https://i.ibb.co/1nrVP3T/2.jpg",
         "class": "Film Marketing Strategies",
-        "availableSeats": 25,
-        "price": 290
+        "numOfStudent": 32,
+        "availableSeats": 8,
+        "price": 280,
+        "classRating": 4.6,
+        "instructorRating": 4.7,
+        "details": "Master the art of film marketing with James Wilson, a seasoned marketing strategist in the film industry. In this class, you'll learn effective marketing techniques to promote and distribute your films to the right audience. Gain insights into building a strong brand, creating impactful marketing campaigns, and utilizing digital platforms to maximize your film's reach."
     },
     {
         "instructor": "Ava Garcia",
-        "imgUrl": "",
+        "imgUrl": "https://i.ibb.co/S5kXFXy/14.jpg",
         "email": "ava.garcia@gmail.com",
+        "instructorImg": "https://i.ibb.co/wCDX2LW/15.jpg",
         "class": "Screenwriting for Television",
+        "numOfStudent": 29,
         "availableSeats": 39,
-        "price": 510
+        "price": 510,
+        "classRating": 4.8,
+        "instructorRating": 4.9,
+        "details": "Unlock the secrets of writing for television with Ava Garcia, an experienced screenwriter in the television industry. In this class, you'll dive deep into the techniques and storytelling principles specific to television scripts. From developing compelling characters to crafting engaging plotlines, Ava will guide you through the process of creating captivating television scripts."
     }
 ]

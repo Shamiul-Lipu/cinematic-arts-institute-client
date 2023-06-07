@@ -99,7 +99,7 @@ const Navbar = () => {
                                         data-tooltip-content={`${user ? user : 'Sign up/Login'}`}
                                         data-tooltip-place="top">
                                         <div
-                                            className={`${user ? 'w-10' : 'w-5'} rounded-full ring ring-primary ring-offset-base-100 ring-offset-2`}
+                                            className={`${user ? 'w-10' : 'w-6'} rounded-full ring ring-primary ring-offset-base-100 ring-offset-2`}
                                             data-tip={`${user && user.name}`}
                                             data-place="left"
                                         >
