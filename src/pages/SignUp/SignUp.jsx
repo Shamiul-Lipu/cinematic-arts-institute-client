@@ -1,18 +1,27 @@
+/* eslint-disable no-unused-vars */
 import SectionTitle from "../../components/Titles/SectionTitle";
 import imageSignUp from '../../assets/images/signup.jpg'
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaEye, FaEyeSlash, FaExclamationTriangle, FaExclamation, FaExclamationCircle } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import SubSectionTitle from "../../components/Titles/SubSectionTitle";
 import PrimaryBtn from "../../components/Buttons/PrimaryBtn";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const SignUp = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const [seePass, setSeePass] = useState(false)
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const password = watch('password');
+    const confirmPassword = watch('confirmPassword');
 
     const onSubmit = data => {
+        if (data.password !== data.confirmPassword) {
+            return
+        }
         console.log(data)
     };
 
@@ -23,7 +32,7 @@ const SignUp = () => {
             <div className="max-w-6xl mx-auto px-5">
                 <div className="flex flex-row justify-center items-center md:grid md:grid-cols-2 ">
                     {/* form section */}
-                    <div className="p-4 max-h-[600px] flex flex-col max-w-lg rounded-lg bg-gray-100 text-gray-900">
+                    <div className="p-4 max-h-[1500px] flex flex-col max-w-lg rounded-lg bg-gray-100 text-gray-900">
                         <SubSectionTitle title={'Sign up'}></SubSectionTitle>
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-2">
                             <div className="form-control">
@@ -59,13 +68,16 @@ const SignUp = () => {
                                 </span>}
                             </div>
 
-                            {/* <div className="form-control">
+                            {/* photo url */}
+                            <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
-                                {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
-                            </div> */}
+                                <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.photoURL ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`} />
+                                {errors.photoURL && <span className="text-red-600 flex justify-start items-center mt-1">
+                                    <FaExclamationCircle />Photo URL is required</span>}
+                            </div>
+
                             {/* password */}
                             <div className="form-control relative">
                                 <label className="label">
@@ -101,6 +113,38 @@ const SignUp = () => {
                                     <FaExclamationTriangle /> Password must be less than 20 characters</span>}
                                 {errors.password?.type === 'pattern' && <span className="text-red-600 flex justify-start items-center mt-1">
                                     <FaExclamationTriangle /> Password must have one Uppercase one lower case, one number and one special character.</span>}
+
+                            </div>
+                            {/* confirm password */}
+                            <div className="form-control relative">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Confirm Password</span>
+                                </label>
+                                <input
+                                    type={`${seePass ? 'text' : 'password'}`}
+                                    {...register("confirmPassword", {
+                                        required: true,
+                                        validate: (value) => value === password || 'Passwords do not match',
+                                    })} placeholder="password" className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.confirmPassword ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`}
+                                />
+
+                                {seePass ? (
+                                    <FaEye
+                                        className="absolute right-3 top-[60px] transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                        onClick={() => setSeePass(false)}
+                                    />
+                                ) : (
+                                    <FaEyeSlash
+                                        className="absolute right-3 top-[60px] transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                        onClick={() => setSeePass(true)}
+                                    />
+                                )}
+
+                                {errors.confirmPassword?.type === 'required' && <span className="text-red-600 flex justify-start items-center mt-1">
+                                    <FaExclamationTriangle /> Password Confirmation is required</span>}
+                                {errors.confirmPassword && password && <span className="text-red-600 flex justify-start items-center mt-1">
+                                    <FaExclamationTriangle />Password and Confirm Password do not match</span>}
+
 
                             </div>
                             <div className="form-control mt-6">
