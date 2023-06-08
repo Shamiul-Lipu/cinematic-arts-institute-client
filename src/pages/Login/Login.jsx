@@ -9,37 +9,60 @@ import SubSectionTitle from '../../components/Titles/SubSectionTitle';
 import PrimaryBtn from '../../components/Buttons/PrimaryBtn';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 const Login = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [seePass, setSeePass] = useState(false);
-    const { signInWithGoogle } = useContext(AuthContext);
+    const { signInWithGoogle, signInUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
     const onSubmit = data => {
-        console.log(data)
-    };
-
-    // Google Login
-    const handleGoogleLogin = () => {
-        signInWithGoogle()
+        signInUser(data.email, data.password)
             .then(result => {
-                const loggedUser = result.user;
-                // console.log(loggedUser)
+                const currentUser = result.user;
+                // console.log(currentUser)
+                reset();
                 navigate(from, { replace: true })
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'User Login successfully.',
+                    title: 'User Login successfull',
                     showConfirmButton: false,
                     timer: 1500
                 });
             })
             .catch(error => {
                 console.log(error);
+                // console.log(error);
+            })
+    };
+
+    // Google Login
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loggedInUser = result.user;
+                const userData = { name: loggedInUser.displayName, email: loggedInUser.email }
+                axios.post(`${import.meta.env.VITE_API_URL}/users`, userData)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.insertedId) {
+                            reset();
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User Login successfull',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/');
+                        }
+                    })
+                    .catch(error => console.error('Error from Signup page Post:', error));
             })
     }
 

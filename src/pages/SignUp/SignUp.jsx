@@ -11,13 +11,14 @@ import PrimaryBtn from "../../components/Buttons/PrimaryBtn";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-hot-toast";
-import { updateProfile } from 'firebase/auth';
+import axios from "axios";
+
 
 const SignUp = () => {
-    const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
     const [seePass, setSeePass] = useState(false)
     const [error, setError] = useState("");
-    const { createUser, auth, signInWithGoogle } = useContext(AuthContext);
+    const { createUser, auth, signInWithGoogle, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -30,38 +31,56 @@ const SignUp = () => {
         if (data.password !== data.confirmPassword) {
             return
         }
-        // console.log(data)
+        // console.log(data);
         createUser(data.email, data.password)
             .then(result => {
-                const createdUser = result.user;
-                updateProfile(auth.currentUser, {
-                    displayName: data.name,
-                    photoURL: `${data.photoURL}`
-                })
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        const userData = { name: data.name, email: data.email, role: 'student' }
+                        axios.post(`${import.meta.env.VITE_API_URL}/users`, userData)
+                            .then(res => {
+                                // console.log(res.data)
+                                if (res.data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+                            .catch(error => console.error('Error from Signup page Post:', error));
+                    })
+                    .catch(error => console.log(error))
             })
-            .catch(error => {
-                setError(error.message);
-                console.log(error)
-            })
-
     };
     // Google Sign up
     const handleGoogleLogin = () => {
         signInWithGoogle()
             .then(result => {
-                const loggedUser = result.user;
-                // console.log(loggedUser)
-                navigate(from, { replace: true })
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'User created successfully.',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            })
-            .catch(error => {
-                console.log(error);
+                const loggedInUser = result.user;
+                const userData = { name: loggedInUser.displayName, email: loggedInUser.email, role: 'student' }
+                axios.post(`${import.meta.env.VITE_API_URL}/users`, userData)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.insertedId) {
+                            reset();
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User created successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/');
+                        }
+                    })
+                    .catch(error => console.error('Error from Signup page Post:', error));
             })
     }
 

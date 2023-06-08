@@ -27,7 +27,7 @@ const ClassCard = ({ classData }) => {
             }
             axios.post(`${import.meta.env.VITE_API_URL}/selected-classes`, selectedClass)
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     if (res.data.insertedId) {
                         refetch();
                         Swal.fire({

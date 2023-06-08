@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useSelectedClasses from "../../../../hooks/useSelectedClasses";
 import { FaTrash, FaMoneyCheckAlt } from "react-icons/fa";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
     const [selectedClasses, refetch] = useSelectedClasses();
@@ -76,7 +77,9 @@ const SelectedClasses = () => {
                                 </td>
                                 <td className="">$ {course.price}</td>
                                 <td>
-                                    <button className="flex justify-center items-center rounded-lg hover:bg-green-300 transition px-4 font-semibold py-3 bg-green-100 text-green-900" ><FaMoneyCheckAlt className="pr-1 w-6 h-6"></FaMoneyCheckAlt> Pay</button>
+                                    <Link to='/dashboard/course-payment'>
+                                        <button className="flex justify-center items-center rounded-lg hover:bg-green-300 transition px-4 font-semibold py-3 bg-green-100 text-green-900" ><FaMoneyCheckAlt className="pr-1 w-6 h-6"></FaMoneyCheckAlt> Pay</button>
+                                    </Link>
                                 </td>
                                 <td>
                                     <button onClick={() => handleDelete(course)} className="flex justify-center items-center rounded-lg hover:bg-red-300 transition px-4 font-semibold py-3 bg-red-100 text-red-900"><FaTrash></FaTrash> Delete</button>

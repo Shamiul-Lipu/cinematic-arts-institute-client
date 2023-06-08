@@ -3,16 +3,14 @@ import RoleDetails from "../components/Dashboard/RoleDetails/RoleDetails";
 import Sidebar from "../components/Dashboard/Sidebar/Sidebar";
 
 
-
-
 const DashboardLayout = () => {
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+
             <div className="drawer-content flex flex-col items-center justify-center">
 
-                <div className="bg-slate-200 w-full flex justify-end items-center gap-3">
-
+                <div className=" w-full flex justify-end items-center gap-3 fixed top-0 left-0 z-50 ">
                     {/* User/Admin details */}
                     {/* top section of dashboard */}
                     <RoleDetails></RoleDetails>
@@ -22,7 +20,9 @@ const DashboardLayout = () => {
                 </div>
 
                 {/* Page content here */}
-                <Outlet></Outlet>
+                <div className="pt-24 lg:pt-0">
+                    <Outlet></Outlet>
+                </div>
 
             </div>
 

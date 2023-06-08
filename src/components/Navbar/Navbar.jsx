@@ -13,6 +13,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [dropMenu, setDropMenu] = useState(false)
+    // console.log(user);
     // console.log(dropMenu);
     const handleLogOut = () => {
         logOut()
@@ -102,7 +103,7 @@ const Navbar = () => {
                                     }
 
                                     <label tabIndex={0} className={`btn btn-ghost btn-circle avatar ${user && 'online'}`} data-tooltip-id="my-tooltip"
-                                        data-tooltip-content={`${user ? user : 'Sign up/Login'}`}
+                                        data-tooltip-content={`${user ? user?.displayName : 'Sign up/Login'}`}
                                         data-tooltip-place="top">
                                         <div
                                             className={`${user ? 'w-10' : 'w-6'} rounded-full ring ring-primary ring-offset-base-100 ring-offset-2`}

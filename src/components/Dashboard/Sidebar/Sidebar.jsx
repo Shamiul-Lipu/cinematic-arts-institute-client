@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import mainLogo from '../../../assets/cinema.png'
 import { FaHome, FaUsers, FaSpellCheck } from "react-icons/fa";
 import UserNav from './UserNav';
+import { Fade } from "react-awesome-reveal";
 
 const Sidebar = () => {
     return (
@@ -13,21 +14,26 @@ const Sidebar = () => {
                     <h3>Cinematic Arts Institute</h3>
                 </div>
                 {/* Common navbar */}
-                <ul className='py-4 font-bold text-base text text-w'>
-                    <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
-                    <hr />
-                    <li><NavLink to="/instructors"><FaUsers></FaUsers> Instructors</NavLink> </li>
-                    <hr />
-                    <li><NavLink to="/classes"><FaSpellCheck></FaSpellCheck> Classes</NavLink> </li>
+                <Fade duration='2000'>
+                    <ul className='py-4 font-bold text-base text text-w'>
+                        <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
+                        <hr />
+                        <li><NavLink to="/instructors"><FaUsers></FaUsers> Instructors</NavLink> </li>
+                        <hr />
+                        <li><NavLink to="/classes"><FaSpellCheck></FaSpellCheck> Classes</NavLink> </li>
 
-                </ul>
+                    </ul>
+                </Fade>
 
                 <div className="divider"></div>
 
-                {/* conditional navbar */}
-                {
-                    <UserNav></UserNav>
-                }
+                {/* conditional nav for dashboard */}
+                <Fade duration='3000'>
+                    {
+                        <UserNav></UserNav>
+                    }
+                </Fade>
+
             </div>
         </>
     );
