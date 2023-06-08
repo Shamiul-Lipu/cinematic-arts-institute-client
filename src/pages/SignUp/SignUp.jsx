@@ -81,6 +81,7 @@ const SignUp = () => {
                         }
                     })
                     .catch(error => console.error('Error from Signup page Post:', error));
+                navigate('/');
             })
     }
 

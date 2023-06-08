@@ -11,6 +11,7 @@ import {
     updateProfile,
 } from 'firebase/auth'
 import { app } from "../firebase/firebase.config";
+import axios from 'axios';
 
 export const AuthContext = createContext(null)
 
@@ -22,6 +23,18 @@ const AuthProvider = ({ children }) => {
     const [role, setRole] = useState(null)
     const [loading, setLoading] = useState(true)
 
+    const getRole = async email => {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${email}`)
+        const user = await response.json()
+
+        return user?.role
+    }
+
+    useEffect(() => {
+        if (user) {
+            getRole(user.email).then(data => setRole(data))
+        }
+    }, [user])
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -59,6 +72,19 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             // console.log('current user', currentUser)
+            // get and set jwt token
+            if (currentUser) {
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {
+                    email: currentUser.email,
+                })
+                    .then(data => {
+                        // console.log(data.data.token)
+                        localStorage.setItem('access-token', data.data.token)
+                        setLoading(false)
+                    })
+            } else {
+                localStorage.removeItem('access-token')
+            }
             setLoading(false)
         })
         return () => {

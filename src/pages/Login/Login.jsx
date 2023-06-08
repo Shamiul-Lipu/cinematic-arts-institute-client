@@ -59,10 +59,11 @@ const Login = () => {
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            navigate('/');
+                            navigate(from, { replace: true })
                         }
                     })
                     .catch(error => console.error('Error from Signup page Post:', error));
+                navigate(from, { replace: true })
             })
     }
 

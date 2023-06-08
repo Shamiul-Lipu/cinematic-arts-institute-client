@@ -3,11 +3,13 @@ import axios from "axios";
 import { useState } from "react";
 import { FaUserTie, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
     const [disable, setDisable] = useState(false)
+    const [axiosSecure] = useAxiosSecure()
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await axios(`${import.meta.env.VITE_API_URL}/users`)
+        const res = await axiosSecure.get(`/users`)
         // console.log('res from useSelectedClasses axios', res)
         return res.data;
     })

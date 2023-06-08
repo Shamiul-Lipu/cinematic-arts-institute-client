@@ -3,8 +3,17 @@ import mainLogo from '../../../assets/cinema.png'
 import { FaHome, FaUsers, FaSpellCheck } from "react-icons/fa";
 import UserNav from './UserNav';
 import { Fade } from "react-awesome-reveal";
+import useAdmin from '../../../hooks/useAdmin';
+import AdminNav from './AdminNav';
+import useInstructor from '../../../hooks/useInstructor';
+import InstructorNav from './InstructorNav';
 
 const Sidebar = () => {
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+
+    console.log(isInstructor, isAdmin);
+
     return (
         <>
             <div>
@@ -30,7 +39,10 @@ const Sidebar = () => {
                 {/* conditional nav for dashboard */}
                 <Fade duration='3000'>
                     {
-                        <UserNav></UserNav>
+                        isAdmin ? <AdminNav></AdminNav> : isInstructor ? <InstructorNav></InstructorNav> : <UserNav></UserNav>
+                    }
+                    {
+
                     }
                 </Fade>
 

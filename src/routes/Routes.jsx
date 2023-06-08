@@ -14,6 +14,8 @@ import EnrolledClasses from "../pages/Dashboard/User/EnrolledClasses/EnrolledCla
 import Payment from "../pages/Dashboard/User/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/User/Payment/PaymentHistory";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
+import AdminRoute from "./AdminRoute";
+import AddClass from "../pages/Dashboard/Instructor/AddClass";
 
 
 const router = createBrowserRouter([
@@ -38,7 +40,9 @@ const router = createBrowserRouter([
             { path: '/dashboard/course-payment', element: <Payment /> },
             { path: '/dashboard/payment-history', element: <PaymentHistory /> },
             // admin
-            { path: '/dashboard/manage-users', element: <ManageUsers /> }
+            { path: '/dashboard/manage-users', element: <AdminRoute><ManageUsers /> </AdminRoute> },
+            // instructor
+            { path: '/dashboard/add-class', element: <AddClass /> },
         ]
     }
 ]);

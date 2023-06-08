@@ -11,9 +11,10 @@ import PrimaryBtn from "../Buttons/PrimaryBtn";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, role } = useContext(AuthContext)
     const [dropMenu, setDropMenu] = useState(false)
-    // console.log(user);
+    // user && role && console.log(role);
+    // const [isAdmin]
     // console.log(dropMenu);
     const handleLogOut = () => {
         logOut()
@@ -97,8 +98,10 @@ const Navbar = () => {
                                     {/* dashboard button in presence of user */}
                                     {/* visibale Login button on navbar  */}
                                     {
-                                        user ?
-                                            <Link to={'/dashboard/my-selected-classes'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
+                                        user && role
+                                            ? role === 'admin'
+                                                ? <Link to={'/dashboard/manage-users'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
+                                                : <Link to={'/dashboard/add-class'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
                                             : <Link to={'/login'}><SecondaryBtn label={'Login'} ></SecondaryBtn></Link>
                                     }
 
@@ -120,11 +123,11 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-indigo-50">
                                     <li className="font-semibold uppercase">
                                         {
-                                            user ? <Link to='/dashboard/my-selected-classes' className="justify-between hover:bg-sky-200 py-3">
-                                                Dashboard
-                                            </Link> : <Link to='/signup' className="justify-between hover:bg-sky-200  py-3">
-                                                Sign up
-                                            </Link>
+                                            user && role
+                                                ? role === 'admin'
+                                                    ? <Link to={'/dashboard/manage-users'} className="justify-between hover:bg-sky-200 py-3">Dashboard</Link>
+                                                    : <Link to='/dashboard/add-class' className="justify-between hover:bg-sky-200 py-3">Dashboard</Link>
+                                                : <Link to='/signup' className="justify-between hover:bg-sky-200  py-3">Sign up</Link>
                                         }
                                     </li>
                                     <li></li>
