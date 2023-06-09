@@ -75,7 +75,7 @@ const ClassCard = ({ classData }) => {
                 <p className="font-semibold text-base">Instructor: {classData.instructor}</p>
                 <p className="font-semibold text-base">Available Seats: {classData.availableSeats}</p>
                 <p className="font-semibold text-base">Price: {classData.price}$</p>
-                <p className="font-semibold text-base">{classData?.details.slice(0, 150)}<span className="text-xs text-blue-500">...see more</span></p>
+                <p className="font-semibold text-base">{classData?.details?.slice(0, 150)}<span className="text-xs text-blue-500">...see more</span></p>
                 <div>
                     <PrimaryBtn
                         onClick={() => handleSelectClass(classData)}

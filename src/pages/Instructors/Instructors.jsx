@@ -34,17 +34,17 @@ const Instructors = () => {
                 <SectionTitle title={'Our Instructors'} titleShort={'Cinematic Masterpiece'}></SectionTitle>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1">
                     {
-                        classes && classes.map(instructor => <PopularCard
+                        classes && classes.map((instructor, i) => <PopularCard
                             instructor={instructor}
-                            title={instructor.instructor}
-                            image={instructor.instructorImg}
-                            course={instructor.class}
+                            title={instructor?.instructor}
+                            image={instructor?.instructorImg}
+                            course={instructor?.class}
                             instructorDetails={true}
-                            email={instructor.email}
-                            classesTaken={instructor.classesTaken}
-                            rating={instructor.instructorRating}
-                            classes={instructor.classes}
-                            key={instructor.instructor}></PopularCard>)
+                            email={instructor?.email}
+                            classesTaken={instructor?.classesTaken}
+                            rating={instructor?.instructorRating}
+                            classes={instructor?.classes}
+                            key={i}></PopularCard>)
                     }
                 </div>
             </Container>

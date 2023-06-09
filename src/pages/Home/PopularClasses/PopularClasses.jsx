@@ -34,12 +34,12 @@ const PopularClasses = () => {
                 {/*  */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1">
                     {
-                        classes && classes.map(classData => <PopularCard
-                            image={classData.imgUrl}
-                            title={classData.class}
-                            rating={classData.classRating}
+                        classes && classes.map((classData, i) => <PopularCard
+                            image={classData?.imgUrl}
+                            title={classData?.class}
+                            rating={classData?.classRating}
                             classData={classData}
-                            key={classData.instructor}></PopularCard>)
+                            key={i}></PopularCard>)
                     }
                 </div>
             </Container>

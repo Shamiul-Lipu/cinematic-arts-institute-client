@@ -1,15 +1,33 @@
+import axios from "axios";
 import PrimaryBtn from "../../../components/Buttons/PrimaryBtn";
 import SubSectionTitle from "../../../components/Titles/SubSectionTitle";
 import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { FaExclamationCircle } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 
 const AddClass = () => {
     const { user } = useAuth()
     const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
+        // data.price = parseFloat(data.price).toFixed(2)
+        console.log(data, typeof data.price);
+        // axios.post(`${import.meta.env.VITE_API_URL}/instructor-post-class`, data)
+        //     .then(response => {
+        //         console.log(response.data);
+        //         toast.success('Your Class Successfully added!', {
+        //             style: {
+        //                 borderRadius: '10px',
+        //                 background: '#333',
+        //                 color: '#fff',
+        //             }
+        //         })
+        //         reset();
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
     }
 
     return (
@@ -28,8 +46,8 @@ const AddClass = () => {
                         </label>
                         <input
                             type="text"
-                            {...register("name", { required: true })}
-                            name="name"
+                            {...register("instructor", { required: true })}
+                            name="instructor"
                             placeholder="Name"
                             defaultValue={user?.displayName}
                             readOnly
@@ -73,7 +91,7 @@ const AddClass = () => {
                         </label>
                         <input
                             type="number"
-                            {...register("price", { required: true })}
+                            {...register("price", { required: true, valueAsNumber: true })}
                             name="price"
                             placeholder="$"
                             className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.price ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`}
@@ -88,13 +106,13 @@ const AddClass = () => {
                         </label>
                         <input
                             type="number"
-                            {...register("availableSeats", { required: true })}
+                            {...register("availableSeats", { required: true, valueAsNumber: true })}
                             name="availableSeats"
                             placeholder="Available seats"
                             className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.availableSeats ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`}
                         />
                         {errors.availableSeats && <span className="text-red-600 flex justify-start items-center mt-1">
-                            <FaExclamationCircle />Pice of class is required</span>}
+                            <FaExclamationCircle />Add seats is required</span>}
                     </div>
                 </div>
 
@@ -110,15 +128,38 @@ const AddClass = () => {
                         <FaExclamationCircle />Image URL is required</span>}
                 </div>
 
+                {/* hidden datas */}
                 {/* classStatus  */}
-                <div className="form-control py-5 hidden">
-                    <label className="label">
-                        <span className="label-text">classStatus</span>
-                    </label>
-                    <input type="text"  {...register("classStatus", { required: true })}
-                        defaultValue={'pending'}
-                        placeholder="classStatus"
-                        className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.imgUrl ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`} />
+                <div className="hidden">
+                    <div className="form-control py-5">
+                        <label className="label">
+                            <span className="label-text">classStatus</span>
+                        </label>
+                        <input type="text"  {...register("classStatus", { required: true })}
+                            defaultValue={'pending'}
+                            placeholder="classStatus"
+                            className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.imgUrl ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`} />
+                    </div>
+                    {/* instructor photoURL user?.photoURL */}
+                    <div className="form-control py-5">
+                        <label className="label">
+                            <span className="label-text">Isntructor Image URL</span>
+                        </label>
+                        <input type="text"  {...register("instructorImg", { required: true })}
+                            placeholder="Photo URL"
+                            defaultValue={user?.photoURL}
+                            className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.imgUrl ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`} />
+                    </div>
+                    {/* number of student */}
+                    <div className="form-control py-5">
+                        <label className="label">
+                            <span className="label-text">Isntructor Image URL</span>
+                        </label>
+                        <input type="number"  {...register("numOfStudent", { required: true, valueAsNumber: true })}
+                            placeholder=""
+                            defaultValue={0}
+                            className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.imgUrl ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`} />
+                    </div>
                 </div>
 
                 <div className="col-12">

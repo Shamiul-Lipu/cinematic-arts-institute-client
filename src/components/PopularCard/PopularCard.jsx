@@ -22,7 +22,7 @@ const PopularCard = ({ image, title, instructor, course, rating, instructorDetai
                         <p className="font-semibold text-base">{email}</p>
                         <p className="font-semibold text-base">Currently taking {classesTaken} class</p>
                         <ul>
-                            {classes.map(course => <li key={course}>{course}</li>)}
+                            {classes && classes.map(course => <li key={course}>{course}</li>)}
                         </ul>
                     </>
                 }

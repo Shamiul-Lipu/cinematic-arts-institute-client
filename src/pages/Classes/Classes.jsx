@@ -47,7 +47,7 @@ const Classes = () => {
                 {/*  */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1">
                     {
-                        classes && classes.map(classData => <ClassCard classData={classData} key={classData.instructor}></ClassCard>)
+                        classes && classes.map((classData, i) => <ClassCard classData={classData} key={i}></ClassCard>)
                     }
                 </div>
             </Container>
