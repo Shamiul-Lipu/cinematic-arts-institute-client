@@ -166,7 +166,7 @@ const AddClass = () => {
 
                 <div className="col-12">
                     <PrimaryBtn label={'Add Your Class'} type="submit" className="btn btn-primary">
-                        Upload Your Toy!
+
                     </PrimaryBtn>
                 </div>
             </form>

@@ -18,6 +18,8 @@ import AdminRoute from "./AdminRoute";
 import AddClass from "../pages/Dashboard/Instructor/AddClass";
 import IsntructorRoute from "./IsntructorRoute";
 import MyClasses from "../pages/Dashboard/Instructor/MyClasses";
+import PrivateRoute from "./PrivateRoute";
+import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
 
 
 const router = createBrowserRouter([
@@ -35,14 +37,15 @@ const router = createBrowserRouter([
     { path: '/signup', element: <SignUp /> },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
             { path: '/dashboard/my-selected-classes', element: <SelectedClasses /> },
-            { path: '/dashboard/my-enrolled-classes', element: <EnrolledClasses /> },
+            { path: '/dashboard/my-enrolled-classes', element: <PrivateRoute><EnrolledClasses /></PrivateRoute> },
             { path: '/dashboard/course-payment', element: <Payment /> },
             { path: '/dashboard/payment-history', element: <PaymentHistory /> },
             // admin
             { path: '/dashboard/manage-users', element: <AdminRoute><ManageUsers /> </AdminRoute> },
+            { path: '/dashboard/manage-classes', element: <AdminRoute><ManageClasses /> </AdminRoute> },
             // instructor
             { path: '/dashboard/add-class', element: <IsntructorRoute><AddClass /></IsntructorRoute> },
             { path: '/dashboard/my-classes', element: <IsntructorRoute><MyClasses /></IsntructorRoute> },
