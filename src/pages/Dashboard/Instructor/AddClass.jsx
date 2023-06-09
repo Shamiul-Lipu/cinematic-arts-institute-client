@@ -5,33 +5,35 @@ import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { FaExclamationCircle } from "react-icons/fa";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
     const { user } = useAuth()
     const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        // data.price = parseFloat(data.price).toFixed(2)
-        console.log(data, typeof data.price);
-        // axios.post(`${import.meta.env.VITE_API_URL}/instructor-post-class`, data)
-        //     .then(response => {
-        //         console.log(response.data);
-        //         toast.success('Your Class Successfully added!', {
-        //             style: {
-        //                 borderRadius: '10px',
-        //                 background: '#333',
-        //                 color: '#fff',
-        //             }
-        //         })
-        //         reset();
-        //     })
-        //     .catch(error => {
-        //         console.error(error);
-        //     });
+        // console.log(data, typeof data.price);
+        axios.post(`${import.meta.env.VITE_API_URL}/instructor-post-class`, data)
+            .then(response => {
+                // console.log(response.data);
+                toast.success('Your Class Successfully added!', {
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    }
+                })
+                reset();
+                navigate('/dashboard/my-classes')
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
     return (
-        <section className="p-3 bg-light">
+        <section className="p-3">
             <SubSectionTitle title={'Add Class'}></SubSectionTitle>
             <form
                 className="row g-3 border-2 border-indigo-300 p-4 rounded-lg"
