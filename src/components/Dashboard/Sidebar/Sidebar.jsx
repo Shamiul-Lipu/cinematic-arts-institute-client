@@ -7,12 +7,17 @@ import useAdmin from '../../../hooks/useAdmin';
 import AdminNav from './AdminNav';
 import useInstructor from '../../../hooks/useInstructor';
 import InstructorNav from './InstructorNav';
+import { useContext } from 'react'
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Sidebar = () => {
-    const [isAdmin] = useAdmin();
-    const [isInstructor] = useInstructor();
+    const { user, role, loading } = useContext(AuthContext)
+    const [isAdmin, isAdminLoading] = useAdmin();
+    const [isInstructor, isInstructorLoading] = useInstructor();
 
-    console.log(isInstructor, isAdmin);
+    // console.log(isInstructor, isAdmin, isAdminLoading, isInstructorLoading);
+    // user && role && console.log(role);
+
 
     return (
         <>
@@ -39,9 +44,14 @@ const Sidebar = () => {
                 {/* conditional nav for dashboard */}
                 <Fade duration='3000'>
                     {
-                        isAdmin ? <AdminNav></AdminNav> : isInstructor ? <InstructorNav></InstructorNav> : <UserNav></UserNav>
-                    }
-                    {
+                        // isAdmin ? <AdminNav></AdminNav> : isInstructor ? <InstructorNav></InstructorNav> : <UserNav></UserNav>
+                        isAdminLoading || isInstructorLoading
+                            ? <div className='text-center '><span className="loading loading-ring loading-lg"></span></div>
+                            : user && role && !loading
+                                ? role === 'admin'
+                                    ? <AdminNav></AdminNav>
+                                    : <InstructorNav></InstructorNav>
+                                : <UserNav></UserNav>
 
                     }
                 </Fade>

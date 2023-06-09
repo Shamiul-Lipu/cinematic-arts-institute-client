@@ -10,7 +10,7 @@ const DashboardLayout = () => {
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-            <div className="drawer-content flex flex-col items-center justify-center">
+            <div className="drawer-content flex flex-col items-center ">
 
                 <div className=" w-full flex justify-end items-center gap-3 fixed top-0 left-0 z-50 ">
                     {/* User/Admin details */}
@@ -22,7 +22,7 @@ const DashboardLayout = () => {
                 </div>
 
                 {/* Page content here */}
-                <div className="pt-24 lg:pt-0">
+                <div className="pt-24">
                     <Outlet></Outlet>
                 </div>
 
