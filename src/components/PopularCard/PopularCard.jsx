@@ -1,8 +1,8 @@
 import { FaStar } from "react-icons/fa";
 
-const PopularCard = ({ image, title, instructor, course, rating, instructorDetails, email, classes, classesTaken }) => {
+const PopularCard = ({ image, title, instructor, course, rating, instructorDetails, email, classes, classesTaken, status }) => {
     return (
-        <div className="card card-compact bg-base-100 shadow-xl">
+        <div className={`card card-compact bg-base-100 shadow-xl ${status && status === "pending" ? 'hidden' : ''}`}>
             <figure><img src={image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title"> {title}</h2>

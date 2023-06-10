@@ -34,7 +34,7 @@ const PopularClasses = () => {
                 {/*  */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1">
                     {
-                        classes && classes.map((classData, i) => <PopularCard
+                        classes && classes.slice(0, 6).map((classData, i) => <PopularCard
                             image={classData?.imgUrl}
                             title={classData?.class}
                             rating={classData?.classRating}

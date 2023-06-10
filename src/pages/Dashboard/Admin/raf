@@ -1,0 +1,26 @@
+<form onSubmit={handleSubmit(onSubmit)} className="">
+
+    <div className="py-3">
+        {/* The button to open modal */}
+        <label htmlFor="my_modal_6" className="btn bg-indigo-950 text-white hover:text-black">open modal</label>
+
+        {/* Put this part before </body> tag */}
+        <input type="checkbox" id="my_modal_6" className="modal-toggle" />
+        <div className="modal">
+            <div className="modal-box">
+                <div className="join py-3">
+                    <input type="text" className="input join-item  border-[1px] border-indigo-300"
+                        placeholder="Feedback" {...register("feedback", { required: false })} />
+
+                    <button type="submit"
+                        className="btn join-item rounded-r-full text-white bg-indigo-950 border-[3px] hover:text-black border-indigo-950">Send
+                        <FaPaperPlane />
+                    </button>
+                </div>
+                <div className="modal-action">
+                    <label htmlFor="my_modal_6" className="btn bg-red-200">Close!</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

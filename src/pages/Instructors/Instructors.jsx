@@ -44,6 +44,7 @@ const Instructors = () => {
                             classesTaken={instructor?.classesTaken}
                             rating={instructor?.instructorRating}
                             classes={instructor?.classes}
+                            status={instructor?.classStatus}
                             key={i}></PopularCard>)
                     }
                 </div>

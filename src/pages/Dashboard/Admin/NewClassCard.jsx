@@ -13,11 +13,29 @@ const NewClassCard = ({ course, refetch }) => {
     const [disabled, setDisabled] = useState(false)
 
 
-    // console.log(typeof of refetch)
+    // console.log(status)
 
     const onSubmit = (update) => {
         const updateData = {
-            ...update, classStatus: status, disabled: disabled
+            feedback: update.feedback
+        }
+        console.log(updateData, course._id);
+        axiosSecure.patch(`/feedback/${course._id}`, updateData)
+            .then(response => {
+                // console.log(response.data);
+                refetch();
+                setDisabled(true)
+                reset();
+                console.log(updateData);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
+    const handleStatus = (status) => {
+        const updateData = {
+            classStatus: status
         }
         // console.log(updateData, course._id);
         axiosSecure.patch(`/update/${course._id}`, updateData)
@@ -31,8 +49,9 @@ const NewClassCard = ({ course, refetch }) => {
             .catch(error => {
                 console.error(error);
             });
-
+        // console.log(status, updateData, course._id);
     }
+
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -52,38 +71,30 @@ const NewClassCard = ({ course, refetch }) => {
                     <p className="">Status:</p>
                     <p className={`bg-orange-100 py-1 px-4 rounded-md mx-2 text-center uppercase`}>{course?.classStatus}</p>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)} className="">
-                    <button onClick={() => setStatus('approved')} className={`btn btn-success mx-2 ${disabled && course.classStatus !== 'pending' ? 'opacity-20 cursor-not-allowed' : ''}`}
+                {/* button */}
+                <div>
+                    <button onClick={() => { handleStatus('approved') }} type="submit" className={`btn btn-success mx-2 ${disabled && course.classStatus !== 'pending' ? 'opacity-20 cursor-not-allowed' : ''}`}
                         disabled={disabled}
                     >Approve</button>
-                    <button onClick={() => setStatus('denied')} className={`btn btn-error mx-2 ${disabled && course.classStatus !== 'pending' ? 'opacity-20 cursor-not-allowed' : ''}`}
+                    <button onClick={() => handleStatus('denied')} type="submit" className={`btn btn-error mx-2 ${disabled && course.classStatus !== 'pending' ? 'opacity-20 cursor-not-allowed' : ''}`}
                         disabled={disabled}
                     >Deny</button>
-                    <div className="py-3">
-                        {/* The button to open modal */}
-                        <label htmlFor="my_modal_6" className="btn bg-indigo-950 text-white hover:text-black">open modal</label>
+                </div>
+                {/* modal */}
+                <div className="py-3">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="join py-3">
+                            <input type="text" className="input join-item  border-[1px] border-indigo-300"
+                                placeholder="Feedback" {...register("feedback", { required: false })} />
 
-                        {/* Put this part before </body> tag */}
-                        <input type="checkbox" id="my_modal_6" className="modal-toggle" />
-                        <div className="modal">
-                            <div className="modal-box">
-                                <div className="join py-3">
-                                    <input
-                                        type="text"
-                                        className="input join-item  border-[1px] border-indigo-300"
-                                        placeholder="Feedback"
-                                        {...register("feedback", { required: false })}
-                                    />
-
-                                    <button type="submit" className="btn join-item rounded-r-full text-white bg-indigo-950 border-[3px] hover:text-black border-indigo-950">Send <FaPaperPlane /></button>
-                                </div>
-                                <div className="modal-action">
-                                    <label htmlFor="my_modal_6" className="btn bg-red-200">Close!</label>
-                                </div>
-                            </div>
+                            <button type="submit"
+                                className="btn join-item rounded-r-full text-white bg-indigo-950 border-[3px] hover:text-black border-indigo-950">Send
+                                <FaPaperPlane />
+                            </button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+
             </div>
         </div>
     );

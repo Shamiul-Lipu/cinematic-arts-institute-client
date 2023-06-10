@@ -11,7 +11,7 @@ const ClassCard = ({ classData }) => {
     const { user } = useContext(AuthContext);
     const [, refetch] = useSelectedClasses();
     const navigate = useNavigate()
-
+    // console.log(classData);
     const handleSelectClass = (classData) => {
         if (user && user.email) {
             // console.log(classData);
@@ -63,7 +63,7 @@ const ClassCard = ({ classData }) => {
     // TODO : use single file for all api
 
     return (
-        <div className={`card card-compact ${classData && classData.availableSeats <= 0 ? 'bg-red-200' : 'bg-indigo-100'}  shadow-xl`}>
+        <div className={`card card-compact ${classData && classData.classStatus === "pending" || classData.classStatus === "denied" ? 'hidden' : ''} ${classData && classData.availableSeats <= 0 ? 'bg-red-200' : 'bg-indigo-100'}  shadow-xl`}>
             {
                 classData && classData.availableSeats <= 0 && (<div className="badge badge-error gap-2 h-7 rounded-xl text-white text-lg">
                     <FaInfoCircle className="text-red-800"></FaInfoCircle>

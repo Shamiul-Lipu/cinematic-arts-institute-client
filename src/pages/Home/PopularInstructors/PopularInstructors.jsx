@@ -39,7 +39,7 @@ const PopularInstructors = () => {
                         instructors && instructors.map(instructor => <InstructorCard instructor={instructor} key={instructor.instructor}></InstructorCard>)
                     } */}
                     {
-                        classes && classes.map((instructor, i) => <PopularCard
+                        classes && classes.slice(0, 6).map((instructor, i) => <PopularCard
                             instructor={instructor}
                             title={instructor?.instructor}
                             image={instructor?.instructorImg}
