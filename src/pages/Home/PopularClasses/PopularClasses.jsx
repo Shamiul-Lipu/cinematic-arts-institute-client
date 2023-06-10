@@ -38,6 +38,7 @@ const PopularClasses = () => {
                             image={classData?.imgUrl}
                             title={classData?.class}
                             rating={classData?.classRating}
+                            numOfStudent={classData?.numOfStudent}
                             classData={classData}
                             key={i}></PopularCard>)
                     }

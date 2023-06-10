@@ -30,7 +30,7 @@ const PopularInstructors = () => {
 
     // console.log(instructors);
     return (
-        <section className="py-5">
+        <section className="py-5 bg-indigo-100">
             <Container>
                 <SectionTitle title={'Popular Instructor'} titleShort={'Cinematic Masterpiece'}></SectionTitle>
                 {/*  */}
@@ -44,7 +44,8 @@ const PopularInstructors = () => {
                             title={instructor?.instructor}
                             image={instructor?.instructorImg}
                             course={instructor?.class}
-
+                            currentStudent={instructor?.numOfStudent}
+                            bgTrue={true}
                             key={i}></PopularCard>)
                     }
                 </div>

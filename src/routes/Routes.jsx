@@ -20,6 +20,7 @@ import IsntructorRoute from "./IsntructorRoute";
 import MyClasses from "../pages/Dashboard/Instructor/MyClasses";
 import PrivateRoute from "./PrivateRoute";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
+import StudentRoute from "./StudentRoute";
 
 
 const router = createBrowserRouter([
@@ -39,10 +40,10 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
-            { path: '/dashboard/my-selected-classes', element: <SelectedClasses /> },
-            { path: '/dashboard/my-enrolled-classes', element: <PrivateRoute><EnrolledClasses /></PrivateRoute> },
-            { path: '/dashboard/course-payment/:id', element: <Payment /> },
-            { path: '/dashboard/payment-history', element: <PaymentHistory /> },
+            { path: '/dashboard/my-selected-classes', element: <StudentRoute><SelectedClasses /></StudentRoute> },
+            { path: '/dashboard/my-enrolled-classes', element: <StudentRoute><EnrolledClasses /></StudentRoute> },
+            { path: '/dashboard/course-payment/:id', element: <StudentRoute><Payment /></StudentRoute> },
+            { path: '/dashboard/payment-history', element: <StudentRoute><PaymentHistory /></StudentRoute> },
             // admin
             { path: '/dashboard/manage-users', element: <AdminRoute><ManageUsers /> </AdminRoute> },
             { path: '/dashboard/manage-classes', element: <AdminRoute><ManageClasses /> </AdminRoute> },

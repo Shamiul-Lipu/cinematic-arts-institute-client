@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import useSelectedClasses from "../../hooks/useSelectedClasses";
 
 const ClassCard = ({ classData }) => {
-    const { user } = useContext(AuthContext);
+    const { user, role } = useContext(AuthContext);
     const [, refetch] = useSelectedClasses();
     const navigate = useNavigate()
     // console.log(classData);
@@ -65,7 +65,7 @@ const ClassCard = ({ classData }) => {
     return (
         <div className={`card card-compact ${classData && classData.classStatus === "pending" || classData.classStatus === "denied" ? 'hidden' : ''} ${classData && classData.availableSeats <= 0 ? 'bg-red-200' : 'bg-indigo-100'}  shadow-xl`}>
             {
-                classData && classData.availableSeats <= 0 && (<div className="badge badge-error gap-2 h-7 rounded-xl text-white text-lg">
+                classData && classData.availableSeats <= 0 && (<div className="badge badge-error gap-2 h-7 rounded-xl text-lg w-full rounded-b-none font-semibold text-red-100">
                     <FaInfoCircle className="text-red-800"></FaInfoCircle>
                     Fully booked
                 </div>)
@@ -83,7 +83,7 @@ const ClassCard = ({ classData }) => {
                     <PrimaryBtn
                         onClick={() => handleSelectClass(classData)}
                         label={'Select Class'}
-                        disabled={classData && classData.availableSeats <= 0 ? true : false}
+                        disabled={classData && classData.availableSeats <= 0 || role !== 'student' ? true : false}
                     ></PrimaryBtn>
                 </div>
             </div>
