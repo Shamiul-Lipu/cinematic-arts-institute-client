@@ -110,6 +110,9 @@ const CheckoutForm = ({ cart, selectedClass, selectedClasses, refetch }) => {
                 date: new Date(),
                 selectedClassID: selectedClass.selectedClassID,
                 status: 'enrolled',
+                class: selectedClass.class,
+                instructor: selectedClass.instructor,
+                numOfStudent: selectedClass.numOfStudent,
             }
             axiosSecure.post(`/payments/${selectedClassID}`, payment)
                 .then(res => {
