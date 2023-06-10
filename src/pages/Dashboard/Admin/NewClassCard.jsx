@@ -12,18 +12,21 @@ const NewClassCard = ({ course, refetch }) => {
     const { loading } = useAuth();
     const [disabled, setDisabled] = useState(false)
 
+
     // console.log(typeof of refetch)
 
     const onSubmit = (update) => {
         const updateData = {
-            ...update, classStatus: status
+            ...update, classStatus: status, disabled: disabled
         }
         // console.log(updateData, course._id);
         axiosSecure.patch(`/update/${course._id}`, updateData)
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 refetch();
                 setDisabled(true)
+                reset();
+
             })
             .catch(error => {
                 console.error(error);
@@ -50,10 +53,10 @@ const NewClassCard = ({ course, refetch }) => {
                     <p className={`bg-orange-100 py-1 px-4 rounded-md mx-2 text-center uppercase`}>{course?.classStatus}</p>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className="">
-                    <button onClick={() => setStatus('approved')} className={`btn btn-success mx-2 ${disabled || course.classStatus === 'approved' ? 'opacity-20 cursor-not-allowed' : ''}`}
+                    <button onClick={() => setStatus('approved')} className={`btn btn-success mx-2 ${disabled && course.classStatus !== 'pending' ? 'opacity-20 cursor-not-allowed' : ''}`}
                         disabled={disabled}
                     >Approve</button>
-                    <button onClick={() => setStatus('denied')} className={`btn btn-error mx-2 ${disabled || course.classStatus === 'denied' ? 'opacity-20 cursor-not-allowed' : ''}`}
+                    <button onClick={() => setStatus('denied')} className={`btn btn-error mx-2 ${disabled && course.classStatus !== 'pending' ? 'opacity-20 cursor-not-allowed' : ''}`}
                         disabled={disabled}
                     >Deny</button>
                     <div className="py-3">

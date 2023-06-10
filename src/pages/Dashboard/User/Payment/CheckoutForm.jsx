@@ -1,41 +1,156 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import './CheckoutForm.css'
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useEffect } from "react";
+import { useState } from "react";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
+import './CheckoutForm.css';
+import axios from "axios";
 
-const CheckoutForm = () => {
+
+
+const CheckoutForm = ({ cart, selectedClass, selectedClasses, refetch }) => {
     const stripe = useStripe();
     const elements = useElements();
+    const { user } = useAuth();
+    const [axiosSecure] = useAxiosSecure()
+    const [errorMassge, setErrorMassge] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
+    const [processing, setProcessing] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
+    const [willUpdateClass, setWillUpdateClass] = useState(null)
+
+    // console.log(classes);
+
+    const price = selectedClass && selectedClass.price
+    const selectedClassID = selectedClass && selectedClass._id
+
+    // selectedClass && console.log(selectedClass._id);
+    useEffect(() => {
+        if (selectedClass && selectedClass.selectedClassID) {
+            // console.log(selectedClass._id);
+            axios.get(`${import.meta.env.VITE_API_URL}/all-classes/${selectedClass.selectedClassID}`)
+                .then(res => {
+                    console.log("Response:", res.data);
+                    // setWillUpdateClass(res.data);
+                })
+                .catch(error => {
+                    console.log('Error fetching data:', error);
+                });
+        }
+
+    }, [selectedClass]);
+
+    console.log("will 43", willUpdateClass?.availableSeats, willUpdateClass?.numOfStudent);
+
+    useEffect(() => {
+        if (price > 0) {
+            axiosSecure.post('/create-payment-intent', { price })
+                .then(res => {
+                    // console.log(res.data.clientSecret)
+                    setClientSecret(res.data.clientSecret);
+                })
+        }
+    }, [price, axiosSecure])
+
 
     const handleSubmit = async (event) => {
-        // Block native form submission.
         event.preventDefault();
 
         if (!stripe || !elements) {
-            // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
-            return;
+            return
         }
 
-        // Get a reference to a mounted CardElement. Elements knows how
-        // to find your CardElement because there can only ever be one of
-        // each type of element.
         const card = elements.getElement(CardElement);
-
-        if (card == null) {
-            return;
+        if (card === null) {
+            return
         }
 
-        // Use your card Element with other Stripe.js APIs
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
-            card,
-        });
+            card
+        })
 
         if (error) {
-            console.log('[error]', error);
-        } else {
-            console.log('[PaymentMethod]', paymentMethod);
+            console.log('error', error)
+            setErrorMassge(error.message);
         }
-    };
+        else {
+            setErrorMassge('');
+        }
+
+        setProcessing(true)
+
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        email: user?.email || 'unknown',
+                        name: user?.displayName || 'anonymous'
+                    },
+                },
+            },
+        );
+
+        if (confirmError) {
+            console.log(confirmError);
+        }
+
+        console.log('payment intent', paymentIntent)
+
+        setProcessing(false)
+        if (paymentIntent.status === 'succeeded') {
+            setTransactionId(paymentIntent.id);
+            // save payment information to the server
+            const payment = {
+                email: user?.email,
+                transactionId: paymentIntent.id,
+                price,
+                date: new Date(),
+                selectedClassID: selectedClass.selectedClassID,
+                status: 'enrolled',
+            }
+            axiosSecure.post(`/payments/${selectedClassID}`, payment)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data) {
+                        // display confirm
+                        console.log("paid id", selectedClass.selectedClassID);
+                        // Updating class seats
+                        const updateClassStatus = (id) => {
+                            axios.get(`${import.meta.env.VITE_API_URL}/all-classes/${id}`)
+                                .then(response => {
+                                    const classData = response.data;
+                                    if (classData) {
+                                        const updatedData = {
+                                            availableSeats: classData?.availableSeats - 1,
+                                            numOfStudent: classData?.numOfStudent + 1
+                                        };
+
+                                        axios.patch(`${import.meta.env.VITE_API_URL}/update-class-seats/${id}`, updatedData)
+                                            .then(response => {
+                                                console.log(response.data); // Handle the response data as needed
+                                            })
+                                            .catch(error => {
+                                                console.error('Error updating class status:', error);
+                                                // Handle the error
+                                            });
+                                        console.log("update 139", updatedData);
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching class data:', error);
+                                    // Handle the error
+                                });
+                        };
+
+                        updateClassStatus(selectedClass.selectedClassID);
+
+                    }
+                })
+        }
+    }
 
     return (
         <>
@@ -45,7 +160,6 @@ const CheckoutForm = () => {
                         style: {
                             base: {
                                 fontSize: '16px',
-                                width: '1200px',
                                 color: '#424770',
                                 '::placeholder': {
                                     color: '#aab7c4',
@@ -57,11 +171,12 @@ const CheckoutForm = () => {
                         },
                     }}
                 />
-                <button className="btn btn-primary btn-sm mt-4" type="submit" >
+                <button className="btn btn-primary btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>
-
+            {errorMassge && <span className='text-red-600 font-semibold  ml-8 mb-2 bg-red-100 px-2 rounded-md'>{errorMassge}</span>}
+            {transactionId && <p className="text-green-500 font-semibold  ml-8 mb-2 bg-green-100 px-2 rounded-md">Transaction complete with transactionId: {transactionId}</p>}
         </>
     );
 };

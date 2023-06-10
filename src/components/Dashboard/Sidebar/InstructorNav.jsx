@@ -9,7 +9,7 @@ const InstructorNav = () => {
                 <li><Link to="/dashboard/add-class"><FaTasks></FaTasks> Add a Class</Link> </li>
                 <hr />
 
-                <li><Link to="/dashboard/my-enrolled-classes"><FaThList></FaThList> My Classes</Link> </li>
+                <li><Link to="/dashboard/my-classes"><FaThList></FaThList> My Classes</Link> </li>
                 <hr />
             </ul>
         </div>

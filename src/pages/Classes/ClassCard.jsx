@@ -37,7 +37,9 @@ const ClassCard = ({ classData }) => {
                             showConfirmButton: false,
                             timer: 1500
                         })
+                        console.log(classData._id);
                     }
+                    // axios.patch(`${import.meta.env.VITE_API_URL}/selected-classes`, selectedClass)
                 })
                 .catch(error => console.error('Error from ClassCard Post:', error));
         }
@@ -73,8 +75,9 @@ const ClassCard = ({ classData }) => {
                 <h2 className="card-title"> {classData.class}</h2>
                 <p className="flex justify-start items-center"><span className="text-yellow-400"><FaStar /></span> <span className="text-xs">{classData.classRating} out of 5 </span></p>
                 <p className="font-semibold text-base">Instructor: {classData.instructor}</p>
-                <p className="font-semibold text-base">Available Seats: {classData.availableSeats}</p>
                 <p className="font-semibold text-base">Price: {classData.price}$</p>
+                <p className="font-semibold text-base">Available Seats: {classData.availableSeats}</p>
+                <p className="font-semibold text-base">Number of student: {classData.numOfStudent}</p>
                 <p className="font-semibold text-base">{classData?.details?.slice(0, 150)}<span className="text-xs text-blue-500">...see more</span></p>
                 <div>
                     <PrimaryBtn

@@ -45,14 +45,23 @@ const Sidebar = () => {
                 <Fade duration='3000'>
                     {
                         // isAdmin ? <AdminNav></AdminNav> : isInstructor ? <InstructorNav></InstructorNav> : <UserNav></UserNav>
+                        // isAdminLoading || isInstructorLoading
+                        //     ? <div className='text-center '><span className="loading loading-ring loading-lg"></span></div>
+                        //     : user && role && !loading
+                        //         ? role === 'admin'
+                        //             ? <AdminNav></AdminNav>
+                        //             : <InstructorNav></InstructorNav>
+                        //         : <UserNav></UserNav>
+
                         isAdminLoading || isInstructorLoading
                             ? <div className='text-center '><span className="loading loading-ring loading-lg"></span></div>
                             : user && role && !loading
-                                ? role === 'admin'
-                                    ? <AdminNav></AdminNav>
-                                    : <InstructorNav></InstructorNav>
-                                : <UserNav></UserNav>
-
+                                ? role === 'student'
+                                    ? <UserNav></UserNav> :
+                                    role === 'admin'
+                                        ? <AdminNav></AdminNav>
+                                        : <InstructorNav></InstructorNav>
+                                : ''
                     }
                 </Fade>
 

@@ -77,7 +77,7 @@ const SelectedClasses = () => {
                                 </td>
                                 <td className="">$ {course.price}</td>
                                 <td>
-                                    <Link to='/dashboard/course-payment'>
+                                    <Link to={`/dashboard/course-payment/${course._id}`}>
                                         <button className="flex justify-center items-center rounded-lg hover:bg-green-300 transition px-4 font-semibold py-3 bg-green-100 text-green-900" ><FaMoneyCheckAlt className="pr-1 w-6 h-6"></FaMoneyCheckAlt> Pay</button>
                                     </Link>
                                 </td>

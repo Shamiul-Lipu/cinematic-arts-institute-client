@@ -99,9 +99,10 @@ const Navbar = () => {
                                     {/* visibale Login button on navbar  */}
                                     {
                                         user && role
-                                            ? role === 'admin'
-                                                ? <Link to={'/dashboard/manage-users'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
-                                                : <Link to={'/dashboard/add-class'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
+                                            ? role === 'student' ? <Link to={'/dashboard/my-selected-classes'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link> :
+                                                role === 'admin'
+                                                    ? <Link to={'/dashboard/manage-users'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
+                                                    : <Link to={'/dashboard/add-class'}><SecondaryBtn label={'Dashboard'}></SecondaryBtn></Link>
                                             : <Link to={'/login'}><SecondaryBtn label={'Login'} ></SecondaryBtn></Link>
                                     }
 
@@ -124,9 +125,10 @@ const Navbar = () => {
                                     <li className="font-semibold uppercase">
                                         {
                                             user && role
-                                                ? role === 'admin'
-                                                    ? <Link to={'/dashboard/manage-users'} className="justify-between hover:bg-sky-200 py-3">Dashboard</Link>
-                                                    : <Link to='/dashboard/add-class' className="justify-between hover:bg-sky-200 py-3">Dashboard</Link>
+                                                ? role === 'student' ? <Link to={'/dashboard/my-selected-classes'} className="justify-between hover:bg-sky-200 py-3">Dashboard</Link> :
+                                                    role === 'admin'
+                                                        ? <Link to={'/dashboard/manage-users'} className="justify-between hover:bg-sky-200 py-3">Dashboard</Link>
+                                                        : <Link to='/dashboard/add-class' className="justify-between hover:bg-sky-200 py-3">Dashboard</Link>
                                                 : <Link to='/signup' className="justify-between hover:bg-sky-200  py-3">Sign up</Link>
                                         }
                                     </li>
