@@ -37,7 +37,7 @@ const ClassCard = ({ classData }) => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        console.log(classData._id);
+                        // console.log(classData._id);
                     }
                     // axios.patch(`${import.meta.env.VITE_API_URL}/selected-classes`, selectedClass)
                 })
@@ -73,7 +73,9 @@ const ClassCard = ({ classData }) => {
             <figure><img src={classData.imgUrl} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title"> {classData.class}</h2>
-                <p className="flex justify-start items-center"><span className="text-yellow-400"><FaStar /></span> <span className="text-xs">{classData.classRating} out of 5 </span></p>
+                {
+                    classData?.classRating && <p className="flex justify-start items-center"><span className="text-yellow-400"><FaStar /></span> <span className="text-xs">{classData?.classRating} out of 5 </span></p>
+                }
                 <p className="font-semibold text-base">Instructor: {classData.instructor}</p>
                 <p className="font-semibold text-base">Price: {classData.price}$</p>
                 <p className="font-semibold text-base">Available Seats: {classData.availableSeats}</p>
@@ -83,7 +85,7 @@ const ClassCard = ({ classData }) => {
                     <PrimaryBtn
                         onClick={() => handleSelectClass(classData)}
                         label={'Select Class'}
-                        disabled={classData && classData.availableSeats <= 0 || role !== 'student' ? true : false}
+                        disabled={classData && classData.availableSeats <= 0 || role === 'admin' || role === 'instructor' ? true : false}
                     ></PrimaryBtn>
                 </div>
             </div>

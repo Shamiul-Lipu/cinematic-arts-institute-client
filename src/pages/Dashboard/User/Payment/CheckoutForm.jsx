@@ -94,10 +94,10 @@ const CheckoutForm = ({ selectedClass, selectedClasses, refetch }) => {
         );
 
         if (confirmError) {
-            console.log(confirmError);
+            // console.log(confirmError);
         }
 
-        console.log('payment intent', paymentIntent)
+        // console.log('payment intent', paymentIntent)
 
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
@@ -117,10 +117,10 @@ const CheckoutForm = ({ selectedClass, selectedClasses, refetch }) => {
             }
             axiosSecure.post(`/payments/${selectedClassID}`, payment)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if (res.data) {
                         // display confirm
-                        console.log("paid id", selectedClass.selectedClassID);
+                        // console.log("paid id", selectedClass.selectedClassID);
                         // Updating class seats of all classes
                         const updateClassStatus = (id) => {
                             axios.get(`${import.meta.env.VITE_API_URL}/all-classes/${id}`)
@@ -134,13 +134,13 @@ const CheckoutForm = ({ selectedClass, selectedClasses, refetch }) => {
 
                                         axios.patch(`${import.meta.env.VITE_API_URL}/update-class-seats/${id}`, updatedData)
                                             .then(response => {
-                                                console.log(response.data); // Handle the response data as needed
+                                                // console.log(response.data); // Handle the response data as needed
                                             })
                                             .catch(error => {
                                                 console.error('Error updating class status:', error);
                                                 // Handle the error
                                             });
-                                        console.log("update 139", updatedData);
+                                        // console.log("update 139", updatedData);
                                     }
                                 })
                                 .catch(error => {

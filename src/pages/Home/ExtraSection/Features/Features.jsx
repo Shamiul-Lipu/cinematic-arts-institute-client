@@ -4,6 +4,7 @@ import SectionTitle from "../../../../components/Titles/SectionTitle";
 import SubSectionTitle from "../../../../components/Titles/SubSectionTitle";
 import { FaFilm, FaCameraRetro, FaChalkboardTeacher, FaMedal } from "react-icons/fa";
 import { FcCamcorderPro, FcClapperboard, FcPhotoReel, FcPicture } from "react-icons/fc";
+import { Fade } from "react-awesome-reveal";
 
 const Features = () => {
     return (
@@ -33,28 +34,30 @@ const Features = () => {
                     <div className="bg-gray-700 opacity-90">
                         <Container>
                             <SectionTitle textWhite={true} title={'WHAT ELSE WE OFFER?'}></SectionTitle>
-                            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 px-1 text-white text-center">
-                                <div className="">
-                                    <FaFilm className="mx-auto w-10 h-10" />
-                                    <SubSectionTitle titleShort={'Practical Approach to Learning'}></SubSectionTitle>
-                                    <p className="text-sm py-3">During study you will turn all knowledge acquired in the classroom into practice. During each academic year you will shoot up to 20 short films and scenes of different styles which you can be used for a high-quality showreel.</p>
+                            <Fade duration='3500'>
+                                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 px-1 text-white text-center">
+                                    <div className="">
+                                        <FaFilm className="mx-auto w-10 h-10" />
+                                        <SubSectionTitle titleShort={'Practical Approach to Learning'}></SubSectionTitle>
+                                        <p className="text-sm py-3">During study you will turn all knowledge acquired in the classroom into practice. During each academic year you will shoot up to 20 short films and scenes of different styles which you can be used for a high-quality showreel.</p>
+                                    </div>
+                                    <div>
+                                        <FaCameraRetro className="mx-auto w-10 h-10" />
+                                        <SubSectionTitle titleShort={'Be Mentored by Film Practicioners'}></SubSectionTitle>
+                                        <p className="text-sm py-3">Small class sizes means more time with tutors and individual guidance on your projects. Our teachers are actively involved in the film industry and can offer tips on the latest trends in filmmaking. </p>
+                                    </div>
+                                    <div>
+                                        <FaChalkboardTeacher className="mx-auto w-10 h-10" />
+                                        <SubSectionTitle titleShort={'Internship on a Film Set'}></SubSectionTitle>
+                                        <p className="text-sm py-3">Our best students will get a chance to have a filmmaking internship on a professional film set. The internship will grow your network of all-important contacts and set yourself apart in this very competitive career field.  </p>
+                                    </div>
+                                    <div>
+                                        <FaMedal className="mx-auto w-10 h-10" />
+                                        <SubSectionTitle titleShort={'Festival-worthy Films'}></SubSectionTitle>
+                                        <p className="text-sm py-3">Every year of study you will shoot 2 festival-worthy films for which you will have access to locations on our premises including a green screen and light studio and professional equipment, including RED cameras. </p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <FaCameraRetro className="mx-auto w-10 h-10" />
-                                    <SubSectionTitle titleShort={'Be Mentored by Film Practicioners'}></SubSectionTitle>
-                                    <p className="text-sm py-3">Small class sizes means more time with tutors and individual guidance on your projects. Our teachers are actively involved in the film industry and can offer tips on the latest trends in filmmaking. </p>
-                                </div>
-                                <div>
-                                    <FaChalkboardTeacher className="mx-auto w-10 h-10" />
-                                    <SubSectionTitle titleShort={'Internship on a Film Set'}></SubSectionTitle>
-                                    <p className="text-sm py-3">Our best students will get a chance to have a filmmaking internship on a professional film set. The internship will grow your network of all-important contacts and set yourself apart in this very competitive career field.  </p>
-                                </div>
-                                <div>
-                                    <FaMedal className="mx-auto w-10 h-10" />
-                                    <SubSectionTitle titleShort={'Festival-worthy Films'}></SubSectionTitle>
-                                    <p className="text-sm py-3">Every year of study you will shoot 2 festival-worthy films for which you will have access to locations on our premises including a green screen and light studio and professional equipment, including RED cameras. </p>
-                                </div>
-                            </div>
+                            </Fade>
                         </Container>
                     </div>
                 </Parallax>

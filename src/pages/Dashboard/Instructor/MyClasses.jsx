@@ -16,11 +16,14 @@ const MyClasses = () => {
         },
     })
 
-    console.log(myClasses);
+    // console.log(myClasses);
 
     return (
-        <section>
+        <section className="py-3">
             <SubSectionTitle title={'My Classes'}></SubSectionTitle>
+            {
+                myClasses && myClasses.length <= 0 ? <h3>No class added Yet!</h3> : ''
+            }
             <div >
                 {
                     myClasses && myClasses.map((course, i) => <div key={i} className="card w-[500px] my-5 bg-base-100 shadow-xl">
@@ -37,7 +40,8 @@ const MyClasses = () => {
                                 <p className={`${course?.classStatus === 'denied' ? 'bg-red-200 border-red-600' : 'bg-slate-400'} py-1 px-4 rounded-md w-1/4 text-center`}>Denied </p>
                             </div>
                             {
-                                course?.feedback && course?.classStatus === 'denied' ? <p className="text-red-500">{course?.feedback}</p> : <p className="">No Feedback Yet!</p>
+                                course?.feedback?.length > 0 ? <p className="text-indigo-900 font-semibold">{course?.feedback}</p> : <p className="">No Feedback Yet!</p>
+
                             }
                             <button className="font-semibold my-2 py-2 px-4 rounded-md shadow-2xl flex justify-center items-center gap-2 text-center hover:opacity-90 bg-indigo-500 mr-1 text-white">Update</button>
                         </div>

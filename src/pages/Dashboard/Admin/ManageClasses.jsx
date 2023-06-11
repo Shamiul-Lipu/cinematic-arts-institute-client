@@ -17,7 +17,7 @@ const ManageClasses = () => {
         }
     })
 
-    console.log(classStatus)
+    // console.log(classStatus)
     return (
         <section>
             <SubSectionTitle title={'Manage Classes'}></SubSectionTitle>

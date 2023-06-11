@@ -19,14 +19,14 @@ const NewClassCard = ({ course, refetch }) => {
         const updateData = {
             feedback: update.feedback
         }
-        console.log(updateData, course._id);
+        // console.log(updateData, course._id);
         axiosSecure.patch(`/feedback/${course._id}`, updateData)
             .then(response => {
                 // console.log(response.data);
                 refetch();
-                setDisabled(true)
+                // setDisabled(true)
                 reset();
-                console.log(updateData);
+                // console.log(updateData);
             })
             .catch(error => {
                 console.error(error);
