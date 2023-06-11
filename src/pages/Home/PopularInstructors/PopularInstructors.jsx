@@ -30,7 +30,7 @@ const PopularInstructors = () => {
 
     // console.log(instructors);
     return (
-        <section className="py-5 bg-indigo-100">
+        <section className="py-5 customDark bg-indigo-100">
             <Container>
                 <SectionTitle title={'Popular Instructor'} titleShort={'Cinematic Masterpiece'}></SectionTitle>
                 {/*  */}

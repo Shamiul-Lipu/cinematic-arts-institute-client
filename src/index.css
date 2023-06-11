@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dark-mode {
+    background-color: rgb(39, 39, 39);
+    color: whitesmoke;
+}
+
+.dark-mode .customDark {
+    background-color: rgb(39, 39, 39);
+    color: whitesmoke;
+}
+
+.dark-mode .customDark a {
+    color: whitesmoke;
+}
+
+
+.dark-mode .cardStyle {
+    background-color: rgba(95, 95, 95, 0.63);
+    color: whitesmoke;
+}
+
+.dark-mode .textBlack a {
+    color: black;
+}

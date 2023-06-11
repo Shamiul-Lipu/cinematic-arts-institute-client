@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import mainLogo from '../../assets/cinema.png'
 import { HiOutlineBars3BottomLeft, HiXMark } from "react-icons/hi2";
@@ -9,13 +9,24 @@ import avatar from '../../assets/wired-lineal-21-avatar.json'
 import SecondaryBtn from "../Buttons/SecondaryBtn";
 import PrimaryBtn from "../Buttons/PrimaryBtn";
 import { AuthContext } from "../../provider/AuthProvider";
+import { FiMoon, FiSun } from "react-icons/fi";
+
 
 const Navbar = () => {
     const { user, logOut, role } = useContext(AuthContext)
     const [dropMenu, setDropMenu] = useState(false)
+    const [toggle, setToggle] = useState(false)
+    // console.log(toggle);
+
+    useEffect(() => {
+        toggle ? document.body.className = 'dark-mode' : document.body.className = '';
+    }, [toggle])
+
+
     // user && role && console.log(role);
     // const [isAdmin]
     // console.log(dropMenu);
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -53,13 +64,13 @@ const Navbar = () => {
 
     </>
     return (
-        <header className="bg-white py-4 fixed w-full z-10 shadow-md">
+        <header className="bg-white py-4 fixed w-full z-10 shadow-md customDark">
             <Container>
                 <div className="flex flex-col md:flex-row justify-between">
                     {/* logo & brand name */}
                     <div className="flex gap-2 mx-auto md:ml-0  items-center">
                         <Link to='/'><img className="w-16 py-1" src={mainLogo} alt="logo" /></Link>
-                        <h3>Cinematic Arts Institute</h3>
+                        <h3 className="font-bold text-sky-600 text-xl">Cinematic <span className="font-extrabold text-indigo-900">Arts Institute</span></h3>
                     </div>
 
                     {/* nav and user */}
@@ -94,7 +105,15 @@ const Navbar = () => {
                         <div>
                             <div className="dropdown dropdown-end">
 
-                                <div className="flex justify-center items-center bg-sky-100 pl-2 rounded-3xl">
+                                <div className="flex justify-center items-center bg-sky-100 pl-2 rounded-3xl ">
+                                    {
+                                        <button onClick={() => setToggle(!toggle)} className="p-1">
+                                            {
+                                                toggle ? <FiMoon className="w-9  h-9 mx-1 text-white rounded-full bg-indigo-950 border-[3px] border-indigo-200" />
+                                                    : <FiSun className="w-9  h-9 mx-1 text-white rounded-full bg-indigo-200 border-[3px] border-indigo-400" />
+                                            }
+                                        </button>
+                                    }
                                     {/* dashboard button in presence of user */}
                                     {/* visibale Login button on navbar  */}
                                     {
@@ -106,7 +125,7 @@ const Navbar = () => {
                                             : <Link to={'/login'}><SecondaryBtn label={'Login'} ></SecondaryBtn></Link>
                                     }
 
-                                    <label tabIndex={0} className={`btn btn-ghost btn-circle avatar ${user && 'online'}`} data-tooltip-id="my-tooltip"
+                                    <label tabIndex={0} className={`btn btn-ghost btn-circle avatar ${user && 'online'} px-1 `} data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${user ? user?.displayName : 'Sign up/Login'}`}
                                         data-tooltip-place="top">
                                         <div
@@ -121,8 +140,8 @@ const Navbar = () => {
 
                                 <Tooltip id="my-tooltip" place="left" />
                                 {/* user dropdown */}
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-indigo-50">
-                                    <li className="font-semibold uppercase">
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-indigo-50 ">
+                                    <li className="font-semibold uppercase textBlack">
                                         {
                                             user && role
                                                 ? role === 'student' ? <Link to={'/dashboard/my-selected-classes'} className="justify-between hover:bg-sky-200 py-3">Dashboard</Link> :

@@ -11,14 +11,14 @@ const Features = () => {
             <Container>
                 <div className="pb-10 max-w-7xl mx-auto">
                     <SectionTitle title={'FILM SCHOOL FACILITIES'}></SectionTitle>
-                    <div className="grid md:grid-cols-2">
+                    <div className="grid md:grid-cols-2 ">
                         <div className="grid grid-cols-2 mx-auto pb-5">
                             <FcCamcorderPro className="w-20 h-20" />
                             <FcClapperboard className="w-20 h-20" />
                             <FcPhotoReel className="w-20 h-20" />
                             <FcPicture className="w-20 h-20" />
                         </div>
-                        <p>During the study at our film school, you will have access to high-end filmmaking equipment and a <span className="text-black font-bold">green screen studio</span> located on our campus. Our equipment is available for you to use free of charge both during the classes and on your own final film projects and includes the most popular cinema cameras <span className="text-black font-bold">RED Gemini and RED Dragon, various camera accessories, lenses, lights, sound equipment, grip, production and mobile facilities (car Hyundai H1).</span> </p>
+                        <p>During the study at our film school, you will have access to high-end filmmaking equipment and a <span className="text-black font-bold cardStyle">green screen studio</span> located on our campus. Our equipment is available for you to use free of charge both during the classes and on your own final film projects and includes the most popular cinema cameras <span className="text-black font-bold cardStyle">RED Gemini and RED Dragon, various camera accessories, lenses, lights, sound equipment, grip, production and mobile facilities (car Hyundai H1).</span> </p>
 
                     </div>
                 </div>

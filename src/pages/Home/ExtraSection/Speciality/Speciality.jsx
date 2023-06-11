@@ -8,7 +8,7 @@ import BtnJoin from "../../../../components/Buttons/BtnJoin";
 const Speciality = () => {
 
     return (
-        <section className="bg-indigo-100 pt-10">
+        <section className="customDark bg-indigo-100 pt-10">
             <Container>
                 <SubSectionTitle title={'WHAT SETS US APART?'} titleShort={'We are the only school that offers specialised modules that are in high demand and essential in current filmmaking industry. '}></SubSectionTitle>
             </Container>
@@ -21,7 +21,7 @@ const Speciality = () => {
                 >
                     <Container>
                         <div className="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 px-1">
-                            <div className="card w-full shadow-xl bg-slate-300 ">
+                            <div className="card w-full shadow-xl bg-slate-300 cardStyle">
                                 <figure className="px-10 pt-10"><img src='https://i.ibb.co/n7dDb9r/Screenshot-2.png' alt="Shoes" className="rounded-xl" />
                                 </figure>
                                 <div className="card-body items-center text-center">
@@ -32,7 +32,7 @@ const Speciality = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card w-full  shadow-xl bg-slate-300">
+                            <div className="card w-full  shadow-xl bg-slate-300 cardStyle">
                                 <figure className="px-10 pt-10">
                                     <img src='https://i.ibb.co/9tv5RQp/Screenshot-1.png' alt="Shoes" className="rounded-xl" />
                                 </figure>
@@ -44,7 +44,7 @@ const Speciality = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card w-full shadow-xl bg-slate-300">
+                            <div className="card w-full shadow-xl bg-slate-300 cardStyle">
                                 <figure className="px-10 pt-10">
                                     <img src='https://i.ibb.co/4mMQZkZ/Screenshot-16.png' alt="Shoes" className="rounded-xl" />
                                 </figure>
@@ -56,7 +56,7 @@ const Speciality = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card w-full  shadow-xl bg-slate-300">
+                            <div className="card w-full  shadow-xl bg-slate-300 cardStyle">
                                 <figure className="px-10 pt-10">
                                     <img src='https://i.ibb.co/BfbpLj2/11.jpg' alt="Shoes" className="rounded-xl" />
                                 </figure>
