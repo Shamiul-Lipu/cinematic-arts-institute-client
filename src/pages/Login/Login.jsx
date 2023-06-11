@@ -15,6 +15,7 @@ import axios from 'axios';
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [seePass, setSeePass] = useState(false);
+    const [error, setError] = useState("");
     const { signInWithGoogle, signInUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -37,6 +38,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error);
+                setError(error.message);
                 // console.log(error);
             })
     };
@@ -82,6 +84,7 @@ const Login = () => {
                     <div className="p-5 max-h-[600px] flex flex-col max-w-lg rounded-lg bg-gray-100 text-gray-900">
                         <SubSectionTitle title={'Login'}></SubSectionTitle>
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-2">
+                            <p className='font-bold text-red-600'>{error}</p>
                             {/* email */}
                             <div className="form-control">
                                 <label className="label">

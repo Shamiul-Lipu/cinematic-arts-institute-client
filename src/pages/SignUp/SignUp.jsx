@@ -149,7 +149,7 @@ const SignUp = () => {
                                         required: true,
                                         minLength: 6,
                                         maxLength: 20,
-
+                                        pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[a-z])/
                                     })} placeholder="password" className={`input input-bordered w-full px-3 py-2 border rounded-md border-gray-300 ${errors.password ? 'focus:outline-rose-600 bg-rose-100' : 'focus:outline-lime-600'} bg-gray-200 text-gray-900`}
                                 />
 
@@ -172,7 +172,7 @@ const SignUp = () => {
                                 {errors.password?.type === 'maxLength' && <span className="text-red-600 flex justify-start items-center mt-1">
                                     <FaExclamationTriangle /> Password must be less than 20 characters</span>}
                                 {errors.password?.type === 'pattern' && <span className="text-red-600 flex justify-start items-center mt-1">
-                                    <FaExclamationTriangle /> Password must have one Uppercase one lower case, one number and one special character.</span>}
+                                    <FaExclamationTriangle /> Password must have one Uppercase one lower case and one special character.</span>}
 
                             </div>
                             {/* confirm password */}

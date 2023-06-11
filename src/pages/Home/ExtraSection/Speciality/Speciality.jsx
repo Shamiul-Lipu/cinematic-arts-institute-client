@@ -8,11 +8,11 @@ import BtnJoin from "../../../../components/Buttons/BtnJoin";
 const Speciality = () => {
 
     return (
-        <section className="bg-indigo-100 py-10">
+        <section className="bg-indigo-100 pt-10">
             <Container>
                 <SubSectionTitle title={'WHAT SETS US APART?'} titleShort={'We are the only school that offers specialised modules that are in high demand and essential in current filmmaking industry. '}></SubSectionTitle>
             </Container>
-            <div className="py-4">
+            <div className="pt-4">
                 <Parallax
                     blur={{ min: -50, max: 50 }}
                     bgImage='https://i.ibb.co/fHQLM2z/bg2.jpg'
