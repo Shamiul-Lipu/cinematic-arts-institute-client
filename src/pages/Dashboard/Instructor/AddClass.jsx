@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { FaExclamationCircle } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import SectionTitle from "../../../components/Titles/SectionTitle";
 
 const AddClass = () => {
     const { user } = useAuth()
@@ -34,7 +35,7 @@ const AddClass = () => {
 
     return (
         <section className="p-3">
-            <SubSectionTitle title={'Add Class'}></SubSectionTitle>
+            <SectionTitle title={'Add Your Class'}></SectionTitle>
             <form
                 className="row g-3 border-2 border-indigo-300 p-4 rounded-lg"
                 onSubmit={handleSubmit(onSubmit)}

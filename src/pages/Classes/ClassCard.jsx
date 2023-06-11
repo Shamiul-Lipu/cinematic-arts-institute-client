@@ -72,15 +72,15 @@ const ClassCard = ({ classData }) => {
             }
             <figure><img src={classData.imgUrl} alt="Shoes" /></figure>
             <div className="card-body">
-                <h2 className="card-title"> {classData.class}</h2>
+                <h2 className="card-title font-bold"> {classData.class}</h2>
                 {
                     classData?.classRating && <p className="flex justify-start items-center"><span className="text-yellow-400"><FaStar /></span> <span className="text-xs">{classData?.classRating} out of 5 </span></p>
                 }
-                <p className="font-semibold text-base">Instructor: {classData.instructor}</p>
-                <p className="font-semibold text-base">Price: {classData.price}$</p>
-                <p className="font-semibold text-base">Available Seats: {classData.availableSeats}</p>
+                <p className="font-bold text-lg ">Instructor: {classData.instructor}</p>
+                <p className="font-semibold text-base text-green-950">Price: {classData.price}$</p>
+                <p className={`font-semibold text-base ${classData?.availableSeats && classData.availableSeats >= 1 ? 'text-green-600' : 'text-red-800 py-1 px-2 rounded-md bg-orange-100 w-3/6'}`}>Available Seats: {classData.availableSeats}</p>
                 <p className="font-semibold text-base">Number of student: {classData.numOfStudent}</p>
-                <p className="font-semibold text-base">{classData?.details?.slice(0, 150)}<span className="text-xs text-blue-500">...see more</span></p>
+                <p className="font-normal text-sm">{classData?.details?.slice(0, 150)}<span className="text-xs text-blue-500">...see more</span></p>
                 <div>
                     <PrimaryBtn
                         onClick={() => handleSelectClass(classData)}

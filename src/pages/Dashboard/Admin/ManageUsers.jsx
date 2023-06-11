@@ -52,12 +52,12 @@ const ManageUsers = () => {
     return (
         <div className="w-full py-4">
             <div className="uppercase font-semibold  flex justify-evenly items-center ">
-                <h3 className="text-3xl">Total User: {users?.length}</h3>
+                <h3 className="text-xl pb-2"><span className="text-indigo-600 font-bold">Total Users {users?.length}</span></h3>
             </div>
             <div className="overflow-x-auto h-96 overflow-y-scroll w-full">
                 <table className="table w-full">
                     {/* head */}
-                    <thead>
+                    <thead className="sticky top-0">
                         <tr className="font-bold text-base bg-indigo-100">
                             <th>#</th>
                             <th>User Name</th>

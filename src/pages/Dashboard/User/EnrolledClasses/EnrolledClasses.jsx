@@ -7,10 +7,8 @@ const EnrolledClasses = () => {
     return (
         <section>
             <SectionTitle title={'Enrolled Courses'}></SectionTitle>
-            <div className="w-full py-4">
-                <div className="uppercase font-semibold  flex justify-evenly items-center ">
-                    <h3 className="text-3xl">Total Enrolled Classes: {enrolledPayments?.length}</h3>
-                </div>
+            <div className="w-full pb-4">
+                <h3 className="text-xl font-semibold text-center">Total <span className="text-indigo-500">Enrolled In {enrolledPayments?.length}</span> Classes</h3>
                 <div className="overflow-x-auto h-96 overflow-y-scroll w-full">
                     <table className="table w-full">
                         {/* head */}

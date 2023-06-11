@@ -4,10 +4,12 @@ import SectionTitle from "../../components/Titles/SectionTitle";
 import ClassCard from "./ClassCard";
 import useFetchClasses from "../../hooks/useFetchClasses";
 import Loader from "../../components/Loader/Loader";
+import useTitle from "../../hooks/useTitle";
 // import { useQuery } from "@tanstack/react-query";
 // import axios from "axios";
 
 const Classes = () => {
+    useTitle('Classes')
     // using useFetchClasses hook for fetching
     const { classes, isLoading, error } = useFetchClasses();
     if (isLoading) {
@@ -43,7 +45,7 @@ const Classes = () => {
     return (
         <section className="py-5">
             <Container>
-                <SectionTitle title={' Classes'} titleShort={'Craft Your Cinematic Masterpiece'}></SectionTitle>
+                <SectionTitle title={'Our Classes'} titleShort={'Elevate Your Filmmaking Skills and Dive Into the Art of Visual Storytelling with our Comprehensive Training Programse'}></SectionTitle>
                 {/*  */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1">
                     {

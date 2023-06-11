@@ -10,6 +10,7 @@ import PrimaryBtn from '../../components/Buttons/PrimaryBtn';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
@@ -19,6 +20,7 @@ const Login = () => {
     const { signInWithGoogle, signInUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle('Login')
     const from = location.state?.from?.pathname || '/';
 
     const onSubmit = data => {

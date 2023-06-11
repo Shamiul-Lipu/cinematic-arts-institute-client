@@ -7,10 +7,8 @@ const PaymentHistory = () => {
     return (
         <section>
             <SectionTitle title={'Payment History'}></SectionTitle>
-            <div className="w-full py-4">
-                <div className="uppercase font-semibold  flex justify-evenly items-center ">
-                    <h3 className="text-3xl">Payment Done: {enrolledPayments?.length}</h3>
-                </div>
+            <div className="w-full">
+                <h3 className="text-xl pb-2 text-center font-bold">Your <span className="text-indigo-600">Payment History </span>({enrolledPayments?.length}times paid in this website)</h3>
                 <div className="overflow-x-auto h-96 overflow-y-scroll w-full">
                     <table className="table w-full">
                         {/* head */}

@@ -30,7 +30,7 @@ const PopularClasses = () => {
     return (
         <section className="py-5">
             <Container>
-                <SectionTitle title={'Popular Classes'} titleShort={'Craft Your Cinematic Masterpiece'}></SectionTitle>
+                <SectionTitle title={'Prime Courses'} titleShort={'Elevate Your Filmmaking Skills and Dive Into the Art of Visual Storytelling with our Comprehensive Training Programs'}></SectionTitle>
                 {/*  */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1">
                     {
@@ -40,6 +40,7 @@ const PopularClasses = () => {
                             rating={classData?.classRating}
                             numOfStudent={classData?.numOfStudent}
                             classData={classData}
+                            bgNew={true}
                             key={i}></PopularCard>)
                     }
                 </div>

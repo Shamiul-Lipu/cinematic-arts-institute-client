@@ -12,6 +12,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import useTitle from "../../hooks/useTitle";
 
 
 const SignUp = () => {
@@ -19,6 +20,7 @@ const SignUp = () => {
     const [seePass, setSeePass] = useState(false)
     const [error, setError] = useState("");
     const { createUser, auth, signInWithGoogle, updateUserProfile } = useContext(AuthContext);
+    useTitle('Sign up')
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';

@@ -22,7 +22,7 @@ const DashboardLayout = () => {
                 </div>
 
                 {/* Page content here */}
-                <div className="pt-24">
+                <div className="pt-28">
                     <Outlet></Outlet>
                 </div>
 

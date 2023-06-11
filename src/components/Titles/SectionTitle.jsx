@@ -1,9 +1,9 @@
 
 const SectionTitle = ({ title, titleShort, textWhite }) => {
     return (
-        <div className={`text-center py-10 ${textWhite ? 'text-white' : ''}`}>
-            <h3 className="text-4xl pb-3 font-bold">{title}</h3>
-            <p className="text-xl font-semibold">{titleShort}</p>
+        <div className={`customDark t text-center py-10 text-indigo-600 ${textWhite ? 'text-white' : ''}`}>
+            <h3 className="text-4xl pb-3 font-bold uppercase">{title}</h3>
+            <p className="customDark text-xl text-indigo-900 font-semibold px-10 md:px-16">{titleShort}</p>
         </div>
     );
 };

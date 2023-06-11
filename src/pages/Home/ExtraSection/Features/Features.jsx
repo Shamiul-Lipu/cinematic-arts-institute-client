@@ -33,7 +33,7 @@ const Features = () => {
                 >
                     <div className="bg-gray-700 opacity-90">
                         <Container>
-                            <SectionTitle textWhite={true} title={'WHAT ELSE WE OFFER?'}></SectionTitle>
+                            <SubSectionTitle textWhite={true} title={'WHAT ELSE WE OFFER?'}></SubSectionTitle>
                             <Fade duration='3500'>
                                 <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 px-1 text-white text-center">
                                     <div className="">

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import SubSectionTitle from "../../../components/Titles/SubSectionTitle";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
+import SectionTitle from "../../../components/Titles/SectionTitle";
 
 const MyClasses = () => {
     const { user, loading } = useAuth();
@@ -20,7 +21,7 @@ const MyClasses = () => {
 
     return (
         <section className="py-3">
-            <SubSectionTitle title={'My Classes'}></SubSectionTitle>
+            <SectionTitle titleShort={'Your Added Classes, Status & Updates'}></SectionTitle>
             {
                 myClasses && myClasses.length <= 0 ? <h3>No class added Yet!</h3> : ''
             }
@@ -40,7 +41,7 @@ const MyClasses = () => {
                                 <p className={`${course?.classStatus === 'denied' ? 'bg-red-200 border-red-600' : 'bg-slate-400'} py-1 px-4 rounded-md w-1/4 text-center`}>Denied </p>
                             </div>
                             {
-                                course?.feedback?.length > 0 ? <p className="text-indigo-900 font-semibold">{course?.feedback}</p> : <p className="">No Feedback Yet!</p>
+                                course?.feedback?.length > 0 ? <p className="text-indigo-700 font-semibold">{course?.feedback}</p> : <p className="text-xs">No Feedback Yet!</p>
 
                             }
                             <button className="font-semibold my-2 py-2 px-4 rounded-md shadow-2xl flex justify-center items-center gap-2 text-center hover:opacity-90 bg-indigo-500 mr-1 text-white">Update</button>

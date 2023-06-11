@@ -32,7 +32,7 @@ const PopularInstructors = () => {
     return (
         <section className="py-5 customDark bg-indigo-100">
             <Container>
-                <SectionTitle title={'Popular Instructor'} titleShort={'Cinematic Masterpiece'}></SectionTitle>
+                <SectionTitle title={'Leading Luminary'} titleShort={'Ignite Your Passion for Filmmaking and Embark on a Transformative Journey of Self-Expression with Our Expert-Led Classes and Workshops'}></SectionTitle>
                 {/*  */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1">
                     {/* {

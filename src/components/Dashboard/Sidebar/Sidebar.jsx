@@ -25,7 +25,7 @@ const Sidebar = () => {
                 <div className="text-center bg-indigo-50 py-2 rounded-lg">
                     {/* img */}
                     <img className='w-1/4 mx-auto' src={mainLogo} />
-                    <h3>Cinematic Arts Institute</h3>
+                    <h3 className='text-xl font-medium text-indigo-400'>Cinematic <span className='font-bold text-indigo-800'>Arts Institute</span></h3>
                 </div>
                 {/* Common navbar */}
                 <Fade duration='2000'>

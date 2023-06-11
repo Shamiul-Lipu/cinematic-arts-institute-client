@@ -70,7 +70,7 @@ const Navbar = () => {
                     {/* logo & brand name */}
                     <div className="flex gap-2 mx-auto md:ml-0  items-center">
                         <Link to='/'><img className="w-16 py-1" src={mainLogo} alt="logo" /></Link>
-                        <h3 className="font-bold text-sky-600 text-xl">Cinematic <span className="font-extrabold text-indigo-900">Arts Institute</span></h3>
+                        <Link to='/'><h3 className=" text-sky-600 text-2xl font-semibold">Cinematic <span className="customDark font-extrabold text-indigo-900 ">Arts Institute</span></h3></Link>
                     </div>
 
                     {/* nav and user */}

@@ -1,9 +1,10 @@
 
 import { Parallax } from "react-parallax";
 import Container from "../../../../components/Container/Container";
-import SubSectionTitle from "../../../../components/Titles/SubSectionTitle";
+
 import BtnJoin from "../../../../components/Buttons/BtnJoin";
 import { Fade } from "react-awesome-reveal";
+import SectionTitle from "../../../../components/Titles/SectionTitle";
 
 
 const Speciality = () => {
@@ -11,7 +12,7 @@ const Speciality = () => {
     return (
         <section className="customDark bg-indigo-100 pt-10">
             <Container>
-                <SubSectionTitle title={'WHAT SETS US APART?'} titleShort={'We are the only school that offers specialised modules that are in high demand and essential in current filmmaking industry. '}></SubSectionTitle>
+                <SectionTitle title={'WHAT SETS US APART?'} titleShort={'We are the only school that offers specialised modules that are in high demand and essential in current filmmaking industry. '}></SectionTitle>
             </Container>
             <div className="pt-4">
                 <Parallax
