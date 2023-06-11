@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 
-const CheckoutForm = ({ cart, selectedClass, selectedClasses, refetch }) => {
+const CheckoutForm = ({ selectedClass, selectedClasses, refetch }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -30,7 +30,7 @@ const CheckoutForm = ({ cart, selectedClass, selectedClasses, refetch }) => {
             // console.log(selectedClass._id);
             axios.get(`${import.meta.env.VITE_API_URL}/all-classes/${selectedClass.selectedClassID}`)
                 .then(res => {
-                    console.log("Response:", res.data);
+                    // console.log("Response:", res.data);
                     // setWillUpdateClass(res.data);
                 })
                 .catch(error => {
@@ -40,7 +40,7 @@ const CheckoutForm = ({ cart, selectedClass, selectedClasses, refetch }) => {
 
     }, [selectedClass]);
 
-    console.log("will 43", willUpdateClass?.availableSeats, willUpdateClass?.numOfStudent);
+    // console.log("will 43", willUpdateClass?.availableSeats, willUpdateClass?.numOfStudent);
 
     useEffect(() => {
         if (price > 0) {
@@ -112,7 +112,8 @@ const CheckoutForm = ({ cart, selectedClass, selectedClasses, refetch }) => {
                 status: 'enrolled',
                 class: selectedClass.class,
                 instructor: selectedClass.instructor,
-                numOfStudent: selectedClass.numOfStudent,
+                numOfStudent: selectedClass.numOfStudent + 1,
+                availableSeats: selectedClass.availableSeats - 1,
             }
             axiosSecure.post(`/payments/${selectedClassID}`, payment)
                 .then(res => {
@@ -120,7 +121,7 @@ const CheckoutForm = ({ cart, selectedClass, selectedClasses, refetch }) => {
                     if (res.data) {
                         // display confirm
                         console.log("paid id", selectedClass.selectedClassID);
-                        // Updating class seats
+                        // Updating class seats of all classes
                         const updateClassStatus = (id) => {
                             axios.get(`${import.meta.env.VITE_API_URL}/all-classes/${id}`)
                                 .then(response => {
@@ -174,7 +175,7 @@ const CheckoutForm = ({ cart, selectedClass, selectedClasses, refetch }) => {
                         },
                     }}
                 />
-                <button className="btn btn-primary btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
+                <button className=" mt-4 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-white px-5 py-1 rounded-md py font-bold hover:text-indigo-950" type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>

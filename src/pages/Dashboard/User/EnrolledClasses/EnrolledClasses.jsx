@@ -3,7 +3,7 @@ import usePaymentHistory from "../../../../hooks/usePaymentHistory";
 
 const EnrolledClasses = () => {
     const [enrolledPayments] = usePaymentHistory()
-    console.log(enrolledPayments);
+    // console.log(enrolledPayments);
     return (
         <section>
             <SectionTitle title={'Enrolled Courses'}></SectionTitle>
@@ -20,6 +20,7 @@ const EnrolledClasses = () => {
                                 <th>Enrolled Classes</th>
                                 <th>Isntructor</th>
                                 <th>Current Student</th>
+                                <th>Available Seats</th>
                                 <th>Paid Price</th>
                                 <th>Date & TransactionID</th>
 
@@ -41,6 +42,9 @@ const EnrolledClasses = () => {
                                     </td>
                                     <td>
                                         {course?.numOfStudent}
+                                    </td>
+                                    <td>
+                                        {course?.availableSeats}
                                     </td>
                                     <td className="">$ {course.price}</td>
 

@@ -3,7 +3,7 @@ import usePaymentHistory from "../../../../hooks/usePaymentHistory";
 
 const PaymentHistory = () => {
     const [enrolledPayments] = usePaymentHistory()
-    console.log(enrolledPayments);
+    // console.log(enrolledPayments);
     return (
         <section>
             <SectionTitle title={'Payment History'}></SectionTitle>

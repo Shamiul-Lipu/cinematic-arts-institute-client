@@ -1,4 +1,4 @@
-import SectionTitle from "../../../../components/Titles/SectionTitle";
+
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
@@ -6,6 +6,7 @@ import useSelectedClasses from "../../../../hooks/useSelectedClasses";
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
+import { FaMoneyCheckAlt } from "react-icons/fa";
 
 const stripePromise = loadStripe(`${import.meta.env.VITE_Payment_Gateway_PK}`);
 
@@ -36,7 +37,7 @@ const Payment = () => {
 
     return (
         <div className="border-[3px] border-indigo-600 my-4 rounded-lg bg-gray-800">
-            <SectionTitle textWhite={true} title={'Payment'}></SectionTitle>
+            <h3 className="font-bold text-3xl text-white flex items-center justify-center gap-3 py-3"><FaMoneyCheckAlt /> Payment</h3>
             <Elements stripe={stripePromise}>
                 <CheckoutForm selectedClass={selectedClass} selectedClasses={selectedClasses} refetch={refetch} ></CheckoutForm>
             </Elements>
