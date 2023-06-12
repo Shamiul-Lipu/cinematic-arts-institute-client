@@ -11,13 +11,14 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import useTitle from '../../hooks/useTitle';
+import { Tooltip } from 'react-tooltip';
 
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [seePass, setSeePass] = useState(false);
     const [error, setError] = useState("");
-    const { signInWithGoogle, signInUser } = useContext(AuthContext);
+    const { signInWithGoogle, signInUser, role } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     useTitle('Login')
@@ -63,11 +64,15 @@ const Login = () => {
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            navigate(from, { replace: true })
+                            navigate('/')
+                            // window.location.reload();
                         }
                     })
                     .catch(error => console.error('Error from Signup page Post:', error));
-                navigate(from, { replace: true })
+                console.log(role);
+                // if(role !== 'admin' || role !== '')
+                navigate('/')
+                // window.location.reload();
             })
     }
 
@@ -142,8 +147,11 @@ const Login = () => {
                                 </label>
                             </div>
                             {/* button */}
-                            <div className="form-control mt-6">
+                            <div className="form-control mt-6" data-tooltip-id="my-tooltip"
+                                data-tooltip-content={`To access the full functionality, please sign up first`}
+                                data-tooltip-place="bottom">
                                 <PrimaryBtn label={'Login'} className="" type="submit" value="Login" />
+                                <Tooltip id="my-tooltip" place="left" />
                             </div>
                             <p className='px-6 text-sm text-center text-gray-400'>
                                 Don{'\''}t have an account yet?{' '}
@@ -161,7 +169,13 @@ const Login = () => {
 
                             className='mx-auto my-2'
                         >
-                            <button onClick={handleGoogleLogin} className="btn btn-outline "><FcGoogle size={30} />Continue with Google</button>
+                            <button onClick={handleGoogleLogin} className="btn btn-outline" data-tooltip-id="tooltip"
+                                data-tooltip-content={`To access the full functionality, please sign up first`}
+                                data-tooltip-place="top"
+                            ><FcGoogle size={30} />
+                                Continue with Google
+                                <Tooltip id="tooltip" place="left" />
+                            </button>
                         </div>
                     </div>
                 </div>

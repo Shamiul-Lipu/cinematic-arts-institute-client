@@ -23,16 +23,18 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const getRole = async email => {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${email}`)
-        const user = await response.json()
-        return user?.role
+        if (email) {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${email}`)
+            const user = await response.json()
+            return user?.role
+        }
     }
 
     useEffect(() => {
-        if (user) {
-            getRole(user.email).then(data => setRole(data))
+        if (user?.email) {
+            getRole(user?.email).then(data => setRole(data))
         }
-    }, [user])
+    }, [user?.email])
 
     const createUser = (email, password) => {
         setLoading(true)

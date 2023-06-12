@@ -25,7 +25,8 @@ const Navbar = () => {
 
     // user && role && console.log(role);
     // const [isAdmin]
-    // console.log(dropMenu);
+    // console.log(role);
+
 
     const handleLogOut = () => {
         logOut()

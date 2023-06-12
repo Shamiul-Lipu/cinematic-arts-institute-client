@@ -54,6 +54,7 @@ const SignUp = () => {
                                         timer: 1500
                                     });
                                     navigate('/');
+                                    window.location.reload();
                                 }
                             })
                             .catch(error => console.error('Error from Signup page Post:', error));
@@ -80,6 +81,7 @@ const SignUp = () => {
                                 timer: 1500
                             });
                             navigate('/');
+                            window.location.reload();
                         }
                     })
                     .catch(error => console.error('Error from Signup page Post:', error));
