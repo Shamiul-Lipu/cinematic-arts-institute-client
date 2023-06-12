@@ -8,7 +8,7 @@ Cinematic Arts Institute live link :   https://cinematic-arts-institute.web.app/
 
 # Cinematic Arts Institute
 
-This is a React app with React Router Dom for navigation, Firebase for authentication, MongoDB as the database, Vercel for server hosting, Stripe for payments, Tanstack Query for efficient data handling, and JWT and Axios for communication.
+This is a React app with React Router Dom for navigation, Firebase for authentication, MongoDB as the database, Vercel for server hosting, Stripe for payments, Tanstack Query for efficient data handling, JWT and Axios for communication.
 
 **Welcome to the ultimate Summer Camp platform at the Cinematic Arts Institute! Our website is specifically designed to cater to aspiring filmmakers and provide an immersive summer camp experience like no other. With dedicated dashboards for instructors, administrators, and students, we ensure that everyone can make the most of their time with us. Explore our homepage to discover popular classes, renowned instructors, and exciting summer camp programs. Instructors can easily add new classes and summer camp sessions, while students have a seamless enrollment and payment process. Administrators oversee the smooth operation of the institute, guaranteeing an unforgettable summer camp adventure for all participants. Get ready to embark on a cinematic journey like never before at the ultimate Summer Camp platform of the Cinematic Arts Institute!**
 
