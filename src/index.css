@@ -3,25 +3,32 @@
 @tailwind utilities;
 
 .dark-mode {
-    background-color: rgb(39, 39, 39);
-    color: whitesmoke;
+  background-color: rgb(39, 39, 39);
+  color: whitesmoke;
 }
 
 .dark-mode .customDark {
-    background-color: rgb(39, 39, 39);
-    color: whitesmoke;
+  background-color: rgb(39, 39, 39);
+  color: whitesmoke;
 }
 
 .dark-mode .customDark a {
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
-
 .dark-mode .cardStyle {
-    background-color: rgba(95, 95, 95, 0.63);
-    color: whitesmoke;
+  background-color: rgba(95, 95, 95, 0.63);
+  color: whitesmoke;
 }
 
 .dark-mode .textBlack a {
-    color: black;
+  color: black;
+}
+
+.dark-mode .textBlack {
+  color: black;
+}
+
+.dark-mode .textWhite {
+  color: whitesmoke;
 }
