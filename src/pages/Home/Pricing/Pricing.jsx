@@ -1,4 +1,12 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const Pricing = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const plans = [
     {
       name: "Cinematic Virtuoso Guild",
@@ -31,7 +39,7 @@ const Pricing = () => {
     },
   ];
   return (
-    <section className="relative py-14 bg-gray-700">
+    <section className="relative py-14 bg-gray-700 overflow-hidden">
       <div
         className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
         style={{
@@ -54,7 +62,7 @@ const Pricing = () => {
             </p>
           </div>
         </div>
-        <div className="mt-16 justify-center sm:flex">
+        <div data-aos="fade-up" className="mt-16 justify-center sm:flex">
           {plans.map((item, idx) => (
             <div
               key={idx}

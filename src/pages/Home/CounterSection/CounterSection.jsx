@@ -1,6 +1,9 @@
 import Container from "../../../components/Container/Container";
 import CountUp from "react-countup";
 import { Fade } from "react-awesome-reveal";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const CounterSection = () => {
   const stats = [
@@ -21,10 +24,13 @@ const CounterSection = () => {
     },
   ];
   //   console.log(stats);
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <Container>
-      <section className="py-10 bg-gray-900 rounded-b-xl">
+      <section className="py-10 bg-gray-900 rounded-b-xl overflow-hidden">
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-white text-3xl font-semibold sm:text-4xl">
@@ -66,7 +72,7 @@ const CounterSection = () => {
               </p>
             </Fade>
           </div>
-          <div className="mt-12">
+          <div data-aos="zoom-out-down" className="mt-12">
             <ul className="flex flex-col gap-4 items-center justify-center sm:flex-row">
               {stats.map((item, idx) => (
                 <li

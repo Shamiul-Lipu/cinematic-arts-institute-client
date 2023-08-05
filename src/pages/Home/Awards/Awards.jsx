@@ -5,11 +5,18 @@ import awardOne from "../../../assets/awards/awards.png";
 import awardTwo from "../../../assets/awards/award5.png";
 import awardThree from "../../../assets/awards/award3.png";
 import awardFour from "../../../assets/awards/award4.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Awards = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Container>
-      <section className="text-white bg-[#111827] body-font relative">
+      <section className="text-white bg-[#111827] body-font relative overflow-hidden">
         <div
           className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
           style={{
@@ -18,7 +25,7 @@ const Awards = () => {
           }}
         ></div>
         <div className="container px-5 py-10 mx-auto flex flex-wrap">
-          <div className="text-center mb-10">
+          <div data-aos="fade-down" className="text-center mb-10">
             <h1 className="sm:text-3xl text-2xl font-medium title-font  mb-4">
               Award-Winning Achievements
             </h1>
@@ -31,21 +38,33 @@ const Awards = () => {
           </div>
           <div className="flex flex-wrap md:-m-2 -m-1">
             <div className="flex flex-wrap w-1/2">
-              <div className="md:p-2 p-1 w-1/2">
+              <div
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                className="md:p-2 p-1 w-1/2"
+              >
                 <img
                   alt="gallery"
                   className="w-full object-cover h-full object-center block"
                   src={awardFour}
                 />
               </div>
-              <div className="md:p-2 p-1 w-1/2">
+              <div
+                data-aos="fade-right"
+                data-aos-duration="500"
+                className="md:p-2 p-1 w-1/2"
+              >
                 <img
                   alt="gallery"
                   className="w-full object-cover h-full object-center block"
                   src={awardTwo}
                 />
               </div>
-              <div className="md:p-2 p-1 w-full">
+              <div
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                className="md:p-2 p-1 w-full"
+              >
                 <img
                   alt="gallery"
                   className="w-full h-full object-cover object-center block"
@@ -54,21 +73,33 @@ const Awards = () => {
               </div>
             </div>
             <div className="flex flex-wrap w-1/2">
-              <div className="md:p-2 p-1 w-full">
+              <div
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                className="md:p-2 p-1 w-full"
+              >
                 <img
                   alt="gallery"
                   className="w-full h-full object-cover object-center block"
                   src={bigAwardImgTow}
                 />
               </div>
-              <div className="md:p-2 p-1 w-1/2">
+              <div
+                data-aos="fade-left"
+                data-aos-duration="500"
+                className="md:p-2 p-1 w-1/2"
+              >
                 <img
                   alt="gallery"
                   className="w-full object-cover h-full object-center block"
                   src={awardThree}
                 />
               </div>
-              <div className="md:p-2 p-1 w-1/2">
+              <div
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                className="md:p-2 p-1 w-1/2"
+              >
                 <img
                   alt="gallery"
                   className="w-full object-cover h-full object-center block"

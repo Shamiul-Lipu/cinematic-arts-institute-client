@@ -15,8 +15,15 @@ import {
   FcPicture,
 } from "react-icons/fc";
 import { Fade } from "react-awesome-reveal";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Features = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="relative">
       <div
@@ -29,14 +36,18 @@ const Features = () => {
       <Container>
         <div className="pb-10 max-w-7xl mx-auto">
           <SectionTitle title={"FILM SCHOOL FACILITIES"}></SectionTitle>
-          <div className="grid md:grid-cols-2 ">
-            <div className="grid grid-cols-2 mx-auto pb-5">
+          <div className="grid md:grid-cols-2 overflow-hidden">
+            <div
+              data-aos="fade-up-right"
+              className="grid grid-cols-2 mx-auto pb-5"
+            >
               <FcCamcorderPro className="w-20 h-20" />
               <FcClapperboard className="w-20 h-20" />
               <FcPhotoReel className="w-20 h-20" />
               <FcPicture className="w-20 h-20" />
             </div>
-            <p>
+
+            <p data-aos="fade-up-left">
               During the study at our film school, you will have access to
               high-end filmmaking equipment and a{" "}
               <span className="text-black font-bold cardStyle">
@@ -55,11 +66,9 @@ const Features = () => {
         </div>
       </Container>
       <div className="">
-        <Parallax
-          blur={{ min: -50, max: 50 }}
-          bgImage="https://i.ibb.co/hYX94j6/3.jpg"
-          bgImageAlt=""
-          strength={-200}
+        <div
+          className="bg-cover bg-center bg-image bg-opacity-100"
+          style={{ backgroundImage: `url(https://i.ibb.co/hYX94j6/3.jpg)` }}
         >
           <div className="bg-gray-700 opacity-90">
             <Container>
@@ -67,8 +76,9 @@ const Features = () => {
                 textWhite={true}
                 title={"WHAT ELSE WE OFFER?"}
               ></SubSectionTitle>
-              <Fade duration="3500">
-                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 px-1 text-white text-center">
+
+              <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 px-1 text-white text-center">
+                <Fade duration={700} cascade>
                   <div className="">
                     <FaFilm className="mx-auto w-10 h-10" />
                     <SubSectionTitle
@@ -117,11 +127,11 @@ const Features = () => {
                       professional equipment, including RED cameras.{" "}
                     </p>
                   </div>
-                </div>
-              </Fade>
+                </Fade>
+              </div>
             </Container>
           </div>
-        </Parallax>
+        </div>
       </div>
     </div>
   );

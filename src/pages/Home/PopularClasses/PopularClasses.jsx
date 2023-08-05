@@ -3,9 +3,17 @@ import SectionTitle from "../../../components/Titles/SectionTitle";
 import PopularCard from "../../../components/PopularCard/PopularCard";
 import useFetchClasses from "../../../hooks/useFetchClasses";
 import Loader from "../../../components/Loader/Loader";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const PopularClasses = () => {
   // using useFetchClasses hook to fetch data
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const { classes, isLoading, error } = useFetchClasses();
   if (isLoading) {
     return <Loader></Loader>;
@@ -28,7 +36,7 @@ const PopularClasses = () => {
   // }, [])
   // console.log(classes);
   return (
-    <section className="py-5">
+    <section className="py-5 overflow-hidden">
       <Container>
         <SectionTitle
           title={"Prime Courses"}
@@ -37,7 +45,10 @@ const PopularClasses = () => {
           }
         ></SectionTitle>
         {/*  */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1 relative ">
+        <div
+          data-aos="zoom-in-up"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-1 relative "
+        >
           <div
             className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
             style={{
