@@ -67,10 +67,10 @@ const Features = () => {
       </Container>
       <div className="">
         <div
-          className="bg-cover bg-center bg-image bg-opacity-100"
+          className="bg-fixed bg-no-repeat bg-center bg-image bg-opacity-100"
           style={{ backgroundImage: `url(https://i.ibb.co/hYX94j6/3.jpg)` }}
         >
-          <div className="bg-gray-700 opacity-90">
+          <div className="bg-gray-700 opacity-90 py-5">
             <Container>
               <SubSectionTitle
                 textWhite={true}
@@ -79,20 +79,20 @@ const Features = () => {
 
               <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 px-1 text-white text-center">
                 <Fade duration={700} cascade>
-                  <div className="">
-                    <FaFilm className="mx-auto w-10 h-10" />
+                  <div className="border-[1px] border-indigo-300 rounded-lg py-4 px-1 bg-slate-800">
+                    <FaFilm className="mx-auto w-14 h-14 text-cyan-300 bg-slate-600 px-3 py-2 rounded-lg" />
                     <SubSectionTitle
                       titleShort={"Practical Approach to Learning"}
                     ></SubSectionTitle>
-                    <p className="text-sm py-3">
+                    <p className="text-sm py-1">
                       During study you will turn all knowledge acquired in the
                       classroom into practice. During each academic year you
                       will shoot up to 20 short films and scenes of different
                       styles which you can be used for a high-quality showreel.
                     </p>
                   </div>
-                  <div>
-                    <FaCameraRetro className="mx-auto w-10 h-10" />
+                  <div className="border-[1px] border-indigo-300 rounded-lg py-4 px-1 bg-slate-800">
+                    <FaCameraRetro className="mx-auto w-14 h-14 text-cyan-300 bg-slate-600 px-3 py-2 rounded-lg" />
                     <SubSectionTitle
                       titleShort={"Be Mentored by Film Practicioners"}
                     ></SubSectionTitle>
@@ -103,8 +103,8 @@ const Features = () => {
                       on the latest trends in filmmaking.{" "}
                     </p>
                   </div>
-                  <div>
-                    <FaChalkboardTeacher className="mx-auto w-10 h-10" />
+                  <div className="border-[1px] border-indigo-300 rounded-lg py-4 px-1 bg-slate-800">
+                    <FaChalkboardTeacher className="mx-auto w-14 h-14 text-cyan-300 bg-slate-600 px-3 py-2 rounded-lg" />
                     <SubSectionTitle
                       titleShort={"Internship on a Film Set"}
                     ></SubSectionTitle>
@@ -115,8 +115,8 @@ const Features = () => {
                       yourself apart in this very competitive career field.{" "}
                     </p>
                   </div>
-                  <div>
-                    <FaMedal className="mx-auto w-10 h-10" />
+                  <div className="border-[1px] border-indigo-300 rounded-lg py-4 px-1 bg-slate-800">
+                    <FaMedal className="mx-auto w-14 h-14 text-cyan-300 bg-slate-600 px-3 py-2 rounded-lg" />
                     <SubSectionTitle
                       titleShort={"Festival-worthy Films"}
                     ></SubSectionTitle>

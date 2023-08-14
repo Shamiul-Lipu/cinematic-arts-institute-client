@@ -45,7 +45,7 @@ const Awards = () => {
               >
                 <img
                   alt="gallery"
-                  className="w-full object-cover h-full object-center block"
+                  className="w-full object-cover h-full object-center block rounded-xl "
                   src={awardFour}
                 />
               </div>
@@ -56,7 +56,7 @@ const Awards = () => {
               >
                 <img
                   alt="gallery"
-                  className="w-full object-cover h-full object-center block"
+                  className="w-full object-cover h-full object-center block rounded-xl"
                   src={awardTwo}
                 />
               </div>
@@ -67,7 +67,7 @@ const Awards = () => {
               >
                 <img
                   alt="gallery"
-                  className="w-full h-full object-cover object-center block"
+                  className="w-full h-full object-cover object-center block rounded-xl"
                   src={bigAwardImgOne}
                 />
               </div>
@@ -80,7 +80,7 @@ const Awards = () => {
               >
                 <img
                   alt="gallery"
-                  className="w-full h-full object-cover object-center block"
+                  className="w-full h-full object-cover object-center block rounded-xl"
                   src={bigAwardImgTow}
                 />
               </div>
@@ -91,7 +91,7 @@ const Awards = () => {
               >
                 <img
                   alt="gallery"
-                  className="w-full object-cover h-full object-center block"
+                  className="w-full object-cover h-full object-center block rounded-xl"
                   src={awardThree}
                 />
               </div>
@@ -102,7 +102,7 @@ const Awards = () => {
               >
                 <img
                   alt="gallery"
-                  className="w-full object-cover h-full object-center block"
+                  className="w-full object-cover h-full object-center block rounded-xl"
                   src={awardOne}
                 />
               </div>
